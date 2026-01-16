@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AslazMarket - Marketplace B2B & B2C Internationale</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts (Inter + Poppins pour hiérarchie stricte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1600px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.4;
+            background-color: #fff;
+            font-size: 13px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+            position: relative;
+            z-index: 1030;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar .dropdown-menu {
+            font-size: 12px;
+            min-width: 120px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        .top-bar-link:hover {
+            color: var(--accent-color);
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1029;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-form {
+            display: flex;
+            height: 46px;
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(244, 67, 54, 0.15);
+        }
+        
+        .category-select-wrapper {
+            position: relative;
+            width: 180px;
+            background-color: var(--light-color);
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .category-select {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+            padding: 0 15px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 13px;
+            appearance: none;
+            cursor: pointer;
+        }
+        
+        .category-select-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--gray-medium);
+        }
+        
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0 20px;
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        .search-suggestions {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid var(--gray-light);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--shadow-md);
+            z-index: 100;
+        }
+        
+        .search-input:focus + .search-suggestions {
+            display: block;
+        }
+        
+        .search-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 120px;
+        }
+        
+        .search-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-item:hover {
+            color: var(--accent-color);
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        .action-badge {
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE + MÉGA-MENU ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 70px;
+            z-index: 1028;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: stretch;
+            height: 48px;
+        }
+        
+        .all-categories-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            height: 100%;
+            font-size: 14px;
+            min-width: 220px;
+        }
+        
+        .all-categories-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        .nav-menu .highlight {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu .highlight a {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        /* Méga-menu */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            box-shadow: var(--shadow-lg);
+            z-index: 1027;
+            display: none;
+            padding: 0;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .mega-menu.active {
+            display: flex;
+        }
+        
+        .mega-categories {
+            width: 280px;
+            background-color: var(--light-color);
+            border-right: 1px solid var(--gray-light);
+            padding: 0;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+        
+        .category-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .category-item:hover, .category-item.active {
+            background-color: white;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .mega-subcategories {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .subcategory-section {
+            padding: 10px 20px;
+            border-right: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .subcategory-section:nth-child(4n) {
+            border-right: none;
+        }
+        
+        .subcategory-section h4 {
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .subcategory-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .subcategory-list li {
+            margin-bottom: 6px;
+        }
+        
+        .subcategory-list a {
+            color: var(--gray-dark);
+            font-size: 12px;
+            display: block;
+            padding: 3px 0;
+        }
+        
+        .subcategory-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        /* ===== HERO TRANSACTIONNEL DENSE ===== */
+        .hero-transactional {
+            padding: 20px 0;
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .category-sidebar {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+        
+        .category-sidebar-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .category-sidebar-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .category-sidebar-item {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 13px;
+        }
+        
+        .category-sidebar-item:last-child {
+            border-bottom: none;
+        }
+        
+        .category-sidebar-item:hover {
+            background-color: var(--light-color);
+            color: var(--accent-color);
+        }
+        
+        .hero-carousel {
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+        
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: left;
+        }
+        
+        .carousel-caption h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .carousel-caption p {
+            font-size: 13px;
+            margin: 0;
+        }
+        
+        .hero-sidebar {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .sidebar-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .sidebar-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sidebar-card-header {
+            background-color: var(--light-color);
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+        
+        .sidebar-card-body {
+            padding: 20px;
+        }
+        
+        .sidebar-card-body p {
+            font-size: 13px;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .btn-auth {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            width: 100%;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-auth:hover {
+            background-color: #283593;
+        }
+        
+        .btn-vendor {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            width: 100%;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-vendor:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* ===== SECTION : CATÉGORIES VEDETTES ===== */
+        .featured-categories {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--accent-color);
+        }
+        
+        .view-all-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .category-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        
+        .category-image {
+            height: 120px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+        
+        .category-info {
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .category-name {
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 5px;
+            height: 30px;
+            overflow: hidden;
+            line-height: 1.2;
+            color: var(--secondary-color);
+        }
+        
+        .category-count {
+            font-size: 11px;
+            color: var(--gray-medium);
+            background-color: var(--light-color);
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        /* ===== SECTION : PRODUITS TENDANCE ===== */
+        .trending-products {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 2px;
+            z-index: 1;
+        }
+        
+        .product-image {
+            height: 140px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 12px;
+        }
+        
+        .product-name {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            height: 32px;
+            overflow: hidden;
+            line-height: 1.2;
+            color: var(--secondary-color);
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-original-price {
+            font-size: 11px;
+            color: var(--gray-medium);
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+        
+        .product-moq {
+            font-size: 11px;
+            color: var(--gray-dark);
+            margin-bottom: 5px;
+        }
+        
+        .product-vendor {
+            font-size: 11px;
+            color: var(--gray-medium);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .vendor-verified {
+            color: var(--success-color);
+            font-size: 10px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .rating-stars {
+            color: #ffb400;
+            font-size: 11px;
+        }
+        
+        .rating-count {
+            font-size: 10px;
+            color: var(--gray-medium);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-quick-view, .btn-add-to-cart {
+            flex: 1;
+            padding: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn-quick-view {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .btn-quick-view:hover {
+            background-color: var(--gray-light);
+        }
+        
+        .btn-add-to-cart {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-add-to-cart:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* ===== SECTION : PRODUITS PAR CATÉGORIE ===== */
+        .products-by-category {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .category-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .category-block {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .category-block-header {
+            background-color: var(--light-color);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-block-title {
+            font-size: 16px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-block-subcategories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .subcategory-link {
+            font-size: 12px;
+            color: var(--gray-dark);
+            padding: 3px 10px;
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        .subcategory-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .category-block-products {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+        
+        /* ===== SECTION : MEILLEURS VENDEURS ===== */
+        .top-vendors {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: var(--light-color);
+        }
+        
+        .vendors-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        
+        .vendor-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .vendor-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        
+        .vendor-logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 18px;
+            flex-shrink: 0;
+            border: 2px solid var(--gray-light);
+            overflow: hidden;
+        }
+        
+        .vendor-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .vendor-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .vendor-name {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .vendor-location {
+            font-size: 11px;
+            color: var(--gray-medium);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .vendor-products {
+            font-size: 11px;
+            color: var(--gray-dark);
+            margin-bottom: 8px;
+        }
+        
+        .vendor-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-visit-store {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .btn-visit-store:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* ===== SECTION : OFFRES DU JOUR ===== */
+        .daily-deals {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .deals-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff8e1;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .deals-badge {
+            background-color: var(--warning-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .countdown {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .countdown-box {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            min-width: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        /* ===== SECTION : NOUVEAUTÉS ===== */
+        .new-arrivals {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: var(--light-color);
+        }
+        
+        /* ===== SECTION : RECOMMANDATIONS ===== */
+        .recommendations {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        /* ===== FOOTER MASSIF ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-about {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .footer-newsletter {
+            margin-top: 15px;
+        }
+        
+        .newsletter-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 8px 12px;
+            width: 100%;
+            color: white;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-newsletter {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 8px 15px;
+            font-size: 12px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-newsletter:hover {
+            background-color: #d32f2f;
+        }
+        
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .trust-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .payment-method {
+            width: 40px;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1400px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .category-block-products {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .vendors-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .category-block-products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .vendors-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .mega-subcategories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .category-block-products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .vendors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mega-subcategories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .search-form {
+                flex-direction: column;
+                height: auto;
+                border: none;
+                box-shadow: none;
+            }
+            
+            .category-select-wrapper, .search-input-wrapper {
+                width: 100%;
+                border: 1px solid var(--gray-light);
+                margin-bottom: 10px;
+                border-radius: var(--border-radius);
+            }
+            
+            .search-btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .category-block-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .vendors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mega-menu {
+                flex-direction: column;
+                max-height: 80vh;
+            }
+            
+            .mega-categories {
+                width: 100%;
+                max-height: 200px;
+            }
+            
+            .mega-subcategories {
+                max-height: 400px;
+            }
+            
+            .nav-menu > li {
+                padding: 0 10px;
+            }
+            
+            .nav-menu a {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .category-block-products {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                            <li><a class="dropdown-item" href="#">ZH - 中文</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown ms-3">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-currency-euro"></i> EUR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">USD - $</a></li>
+                            <li><a class="dropdown-item" href="#">GBP - £</a></li>
+                            <li><a class="dropdown-item" href="#">JPY - ¥</a></li>
+                            <li><a class="dropdown-item" href="#">CNY - ¥</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="top-bar-link ms-3"><i class="bi bi-question-circle"></i> Aide & Support</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="#" class="top-bar-link"><i class="bi bi-person-plus"></i> Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-3">
+                    <a href="#" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="search-container">
+                        <form class="search-form" id="searchForm">
+                            <div class="category-select-wrapper">
+                                <select class="category-select" id="categorySelect">
+                                    <option value="all">Toutes les catégories</option>
+                                    <option value="electronics">Électronique</option>
+                                    <option value="phones">Téléphones & accessoires</option>
+                                    <option value="computers">Informatique</option>
+                                    <option value="fashion-men">Mode homme</option>
+                                    <option value="fashion-women">Mode femme</option>
+                                    <option value="home">Maison & décoration</option>
+                                    <option value="appliances">Électroménager</option>
+                                    <option value="beauty">Beauté & soins</option>
+                                    <option value="health">Santé</option>
+                                    <option value="food">Alimentation</option>
+                                    <option value="sports">Sports & loisirs</option>
+                                    <option value="auto">Automobile & moto</option>
+                                    <option value="industry">Industrie & BTP</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supplies">Fournitures professionnelles</option>
+                                </select>
+                                <i class="bi bi-chevron-down category-select-icon"></i>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <input type="text" class="search-input" placeholder="Rechercher des produits, fournisseurs, catégories..." id="searchInput">
+                                <div class="search-suggestions">
+                                    <div class="suggestion-item">Téléphones portables</div>
+                                    <div class="suggestion-item">Ordinateurs portables</div>
+                                    <div class="suggestion-item">Vêtements homme</div>
+                                    <div class="suggestion-item">Meubles de maison</div>
+                                </div>
+                            </div>
+                            <button type="submit" class="search-btn">
+                                <i class="bi bi-search"></i> Rechercher
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header-actions">
+                        <a href="#" class="action-item">
+                            <i class="bi bi-cart3 action-icon"></i>
+                            <span>Panier</span>
+                            <span class="action-badge">3</span>
+                        </a>
+                        <a href="#" class="action-item">
+                            <i class="bi bi-heart action-icon"></i>
+                            <span>Favoris</span>
+                            <span class="action-badge">12</span>
+                        </a>
+                        <a href="#" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Compte</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE + MÉGA-MENU ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <button class="all-categories-btn" id="categoriesBtn">
+                    <i class="bi bi-grid-3x3-gap-fill"></i> Toutes les catégories
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#"><i class="bi bi-lightning"></i> Offres du jour</a></li>
+                    <li><a href="#"><i class="bi bi-star"></i> Nouveautés</a></li>
+                    <li><a href="#"><i class="bi bi-trophy"></i> Meilleures ventes</a></li>
+                    <li><a href="#"><i class="bi bi-shield-check"></i> Vendeurs vérifiés</a></li>
+                    <li><a href="#"><i class="bi bi-box-seam"></i> Vente en gros</a></li>
+                    <li class="highlight"><a href="#"><i class="bi bi-shop"></i> Devenir vendeur</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Méga-menu -->
+        <div class="mega-menu" id="megaMenu">
+            <div class="mega-categories" id="megaCategories">
+                <!-- Catégories chargées par JavaScript -->
+            </div>
+            <div class="mega-subcategories" id="megaSubcategories">
+                <!-- Sous-catégories chargées par JavaScript -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO TRANSACTIONNEL DENSE ===== -->
+    <section class="hero-transactional">
+        <div class="container-xxl">
+            <div class="row g-3">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="category-sidebar">
+                        <div class="category-sidebar-header">
+                            <i class="bi bi-list"></i> Catégories principales
+                        </div>
+                        <div class="category-sidebar-list" id="sidebarCategories">
+                            <!-- Catégories chargées par JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8">
+                    <div class="hero-carousel">
+                        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Promotions en gros">
+                                    <div class="carousel-caption">
+                                        <h3>Commandes en gros - Économisez jusqu'à 60%</h3>
+                                        <p>Accédez aux prix des fabricants pour vos commandes en volume</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Nouveaux vendeurs">
+                                    <div class="carousel-caption">
+                                        <h3>Nouveaux vendeurs certifiés</h3>
+                                        <p>Découvrez les nouveaux fournisseurs vérifiés avec produits de qualité</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Sécurité des paiements">
+                                    <div class="carousel-caption">
+                                        <h3>Paiements sécurisés</h3>
+                                        <p>Transaction protégée et garantie de remboursement sous 30 jours</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="hero-sidebar">
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">
+                                <i class="bi bi-person-check"></i> Achat rapide
+                            </div>
+                            <div class="sidebar-card-body">
+                                <p>contactez le vendeur pour négocier, suivre vos commandes</p>
+                                <button class="btn-auth">Signalez une fraude</button>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">
+                                <i class="bi bi-shop-window"></i> Devenir vendeur
+                            </div>
+                            <div class="sidebar-card-body">
+                                <p>Vendez vos produits à des millions d'acheteurs internationaux. Configuration rapide et outils de gestion complets.</p>
+                                <button class="btn-vendor">Ouvrir une boutique</button>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-card-header">
+                                <i class="bi bi-shield-lock"></i> Sécurité des paiements
+                            </div>
+                            <div class="sidebar-card-body">
+                                <p>Toutes les transactions sont protégées par notre système de garantie. Paiement sécurisé par cryptage SSL 256 bits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : CATÉGORIES VEDETTES ===== -->
+    <section class="featured-categories">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-star-fill"></i> Catégories vedettes
+                </h2>
+                <a href="#" class="view-all-link">
+                    Voir toutes les catégories <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="categories-grid" id="featuredCategories">
+                <!-- Catégories chargées par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : PRODUITS TENDANCE ===== -->
+    <section class="trending-products">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-fire"></i> Produits tendance
+                </h2>
+                <a href="#" class="view-all-link">
+                    Voir tous les produits <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="products-grid" id="trendingProducts">
+                <!-- Produits chargés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : PRODUITS PAR CATÉGORIE ===== -->
+    <section class="products-by-category">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-grid-3x3-gap"></i> Produits par catégorie
+                </h2>
+            </div>
+            
+            <div class="category-blocks" id="categoryBlocks">
+                <!-- Blocs de catégories chargés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : MEILLEURS VENDEURS ===== -->
+    <section class="top-vendors">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-award"></i> Meilleurs vendeurs
+                </h2>
+                <a href="#" class="view-all-link">
+                    Voir tous les vendeurs <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="vendors-grid" id="topVendors">
+                <!-- Vendeurs chargés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : OFFRES DU JOUR ===== -->
+    <section class="daily-deals">
+        <div class="container-xxl">
+            <div class="deals-header">
+                <div class="deals-badge">
+                    <i class="bi bi-clock"></i> OFFRES DU JOUR
+                </div>
+                <div class="countdown">
+                    <span>Fin dans :</span>
+                    <div class="countdown-box" id="countdown-hours">12</div>h
+                    <div class="countdown-box" id="countdown-minutes">45</div>m
+                    <div class="countdown-box" id="countdown-seconds">33</div>s
+                </div>
+            </div>
+            
+            <div class="products-grid" id="dailyDeals">
+                <!-- Offres du jour chargées par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : NOUVEAUTÉS ===== -->
+    <section class="new-arrivals">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-box-seam"></i> Nouveautés & arrivages
+                </h2>
+                <a href="#" class="view-all-link">
+                    Voir les nouveautés <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="products-grid" id="newArrivals">
+                <!-- Nouveautés chargées par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION : RECOMMANDATIONS ===== -->
+    <section class="recommendations">
+        <div class="container-xxl">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="bi bi-hand-thumbs-up"></i> Recommandations pour vous
+                </h2>
+            </div>
+            
+            <div class="products-grid" id="recommendations">
+                <!-- Recommandations chargées par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER MASSIF ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">À propos d'AslazMarket</h4>
+                        <p class="footer-about">
+                            AslazMarket est la place de marché B2B et B2C leader connectant les acheteurs internationaux avec des fournisseurs vérifiés. Plus de 10 millions de produits dans 40+ catégories.
+                        </p>
+                        <div class="footer-newsletter">
+                            <input type="email" class="newsletter-input" placeholder="Votre email">
+                            <button class="btn-newsletter">S'abonner aux offres</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Acheter -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Acheter sur AslazMarket</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Comment acheter</a></li>
+                            <li><a href="#">Paiements sécurisés</a></li>
+                            <li><a href="#">Livraison mondiale</a></li>
+                            <li><a href="#">Protection de l'acheteur</a></li>
+                            <li><a href="#">Centre de résolution</a></li>
+                            <li><a href="#">Demander un devis</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Vendre -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Vendre sur AslazMarket</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Devenir vendeur</a></li>
+                            <li><a href="#">Frais de vente</a></li>
+                            <li><a href="#">Outils vendeurs</a></li>
+                            <li><a href="#">Marketing & visibilité</a></li>
+                            <li><a href="#">Ressources vendeurs</a></li>
+                            <li><a href="#">Programme de vérification</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Catégories populaires -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Catégories populaires</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Électronique grand public</a></li>
+                            <li><a href="#">Vêtements & accessoires</a></li>
+                            <li><a href="#">Maison & jardin</a></li>
+                            <li><a href="#">Beauté & santé</a></li>
+                            <li><a href="#">Sports & divertissement</a></li>
+                            <li><a href="#">Automobile</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support & sécurité</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Centre d'aide</a></li>
+                            <li><a href="#">Contactez-nous</a></li>
+                            <li><a href="#">Signaler un problème</a></li>
+                            <li><a href="#">Politique de retour</a></li>
+                            <li><a href="#">Conditions d'utilisation</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                        </ul>
+                        
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <i class="bi bi-shield-check"></i> Paiement sécurisé
+                            </div>
+                            <div class="trust-badge">
+                                <i class="bi bi-globe"></i> Livraison mondiale
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-method">Visa</div>
+                    <div class="payment-method">MC</div>
+                    <div class="payment-method">PayPal</div>
+                    <div class="payment-method">Alipay</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Données et logique JavaScript -->
+    <script>
+        // ===== DONNÉES DE LA MARKETPLACE =====
+        
+        // Catégories principales pour méga-menu
+        const mainCategories = [
+            { id: 1, name: 'Électronique', icon: 'bi-cpu', subcategories: [
+                { name: 'Téléviseurs', subs: ['LED TV', 'OLED TV', 'Smart TV', '4K Ultra HD'] },
+                { name: 'Caméras', subs: ['Appareils photo', 'Caméras sport', 'Caméras sécurité', 'Accessoires'] },
+                { name: 'Audio', subs: ['Écouteurs', 'Enceintes', 'Systèmes home cinema', 'Amplificateurs'] },
+                { name: 'Composants électroniques', subs: ['Semi-conducteurs', 'Capteurs', 'Circuits imprimés', 'Connecteurs'] },
+                { name: 'Équipements professionnels', subs: ['Matériel médical', 'Matériel de test', 'Équipement industriel'] }
+            ]},
+            { id: 2, name: 'Téléphones & accessoires', icon: 'bi-phone', subcategories: [
+                { name: 'Smartphones', subs: ['Android', 'iPhone', 'Téléphones basiques', 'Smartphones reconditionnés'] },
+                { name: 'Accessoires téléphone', subs: ['Coques', 'Protections écran', 'Chargeurs', 'Batteries externes'] },
+                { name: 'Montres connectées', subs: ['Apple Watch', 'Samsung Galaxy Watch', 'Xiaomi', 'Autres marques'] },
+                { name: 'Équipement réseau', subs: ['Routeurs', 'Modems', 'Répéteurs WiFi', 'Câbles réseau'] }
+            ]},
+            { id: 3, name: 'Informatique', icon: 'bi-laptop', subcategories: [
+                { name: 'Ordinateurs portables', subs: ['Windows', 'MacBook', 'Chromebook', 'Gaming'] },
+                { name: 'Ordinateurs de bureau', subs: ['PC complets', 'Composants PC', 'Moniteurs', 'Accessoires'] },
+                { name: 'Périphériques', subs: ['Claviers', 'Souris', 'Webcams', 'Imprimantes'] },
+                { name: 'Stockage', subs: ['Disques durs', 'SSD', 'Clés USB', 'Cartes mémoire'] },
+                { name: 'Logiciels', subs: ['Systèmes d\'exploitation', 'Logiciels bureautique', 'Antivirus', 'Jeux'] }
+            ]},
+            { id: 4, name: 'Mode homme', icon: 'bi-person', subcategories: [
+                { name: 'Vêtements', subs: ['Chemises', 'T-shirts', 'Pantalons', 'Vestes'] },
+                { name: 'Chaussures', subs: ['Baskets', 'Chaussures de ville', 'Sandales', 'Chaussures de sport'] },
+                { name: 'Accessoires', subs: ['Montres', 'Ceintures', 'Portefeuilles', 'Lunettes'] },
+                { name: 'Sous-vêtements', subs: ['Boxers', 'Chaussettes', 'Sous-vêtements thermiques'] }
+            ]},
+            { id: 5, name: 'Mode femme', icon: 'bi-person-heels', subcategories: [
+                { name: 'Vêtements', subs: ['Robes', 'Tops', 'Jupes', 'Pantalons'] },
+                { name: 'Chaussures', subs: ['Talons', 'Ballerines', 'Baskets', 'Sandales'] },
+                { name: 'Accessoires', subs: ['Sacs', 'Bijoux', 'Écharpes', 'Chapeaux'] },
+                { name: 'Sous-vêtements', subs: ['Soutiens-gorge', 'Culottes', 'Pyjamas'] }
+            ]},
+            { id: 6, name: 'Maison & décoration', icon: 'bi-house', subcategories: [
+                { name: 'Meubles', subs: ['Salon', 'Chambre', 'Cuisine', 'Bureau'] },
+                { name: 'Décoration', subs: ['Luminaires', 'Tapis', 'Tableaux', 'Vases'] },
+                { name: 'Cuisine', subs: ['Ustensiles', 'Vaisselle', 'Appareils de cuisine', 'Rangements'] },
+                { name: 'Jardin', subs: ['Mobilier de jardin', 'Outils de jardinage', 'Décoration extérieure'] }
+            ]},
+            { id: 7, name: 'Électroménager', icon: 'bi-plug', subcategories: [
+                { name: 'Gros électroménager', subs: ['Réfrigérateurs', 'Lave-linge', 'Lave-vaisselle', 'Cuisinières'] },
+                { name: 'Petit électroménager', subs: ['Mixeurs', 'Aspirateurs', 'Fers à repasser', 'Bouilloires'] },
+                { name: 'Climatisation', subs: ['Climatiseurs', 'Ventilateurs', 'Chauffages', 'Purificateurs d\'air'] }
+            ]},
+            { id: 8, name: 'Beauté & soins', icon: 'bi-droplet', subcategories: [
+                { name: 'Soins de la peau', subs: ['Crèmes', 'Sérums', 'Nettoyants', 'Masques'] },
+                { name: 'Maquillage', subs: ['Fonds de teint', 'Rouges à lèvres', 'Mascaras', 'Palettes'] },
+                { name: 'Parfums', subs: ['Parfums femmes', 'Parfums hommes', 'Eaux de toilette'] },
+                { name: 'Soins cheveux', subs: ['Shampoings', 'Après-shampoings', 'Colorations', 'Accessoires'] }
+            ]},
+            { id: 9, name: 'Santé', icon: 'bi-heart-pulse', subcategories: [
+                { name: 'Médicaments', subs: ['Sans ordonnance', 'Premiers soins', 'Compléments alimentaires'] },
+                { name: 'Équipement médical', subs: ['Thermomètres', 'Tensiomètres', 'Stéthoscopes', 'Oxymètres'] },
+                { name: 'Soins personnels', subs: ['Brosse à dents électrique', 'Rasoirs', 'Soins bucco-dentaires'] }
+            ]},
+            { id: 10, name: 'Alimentation', icon: 'bi-cup-straw', subcategories: [
+                { name: 'Épicerie', subs: ['Conserves', 'Pâtes & riz', 'Condiments', 'Boissons'] },
+                { name: 'Snacks', subs: ['Biscuits', 'Chips', 'Chocolats', 'Bonbons'] },
+                { name: 'Aliments santé', subs: ['Bio', 'Sans gluten', 'Végétarien', 'Protéines'] }
+            ]},
+            { id: 11, name: 'Sports & loisirs', icon: 'bi-bicycle', subcategories: [
+                { name: 'Équipement sportif', subs: ['Fitness', 'Yoga', 'Camping', 'Pêche'] },
+                { name: 'Vêtements sport', subs: ['Tenues de sport', 'Chaussures de sport', 'Accessoires'] },
+                { name: 'Jeux', subs: ['Jeux de société', 'Jeux vidéo', 'Jouets', 'Puzzles'] }
+            ]},
+            { id: 12, name: 'Automobile & moto', icon: 'bi-car-front', subcategories: [
+                { name: 'Pièces auto', subs: ['Moteur', 'Freinage', 'Suspension', 'Échappement'] },
+                { name: 'Accessoires auto', subs: ['GPS', 'Caméras de recul', 'Nettoyants', 'Coussins'] },
+                { name: 'Entretien', subs: ['Huiles', 'Liquides', 'Outils', 'Batteries'] }
+            ]},
+            { id: 13, name: 'Industrie & BTP', icon: 'bi-tools', subcategories: [
+                { name: 'Machines industrielles', subs: ['Machines-outils', 'Générateurs', 'Compresseurs', 'Pompes'] },
+                { name: 'Matériel BTP', subs: ['Outils électriques', 'Outils manuels', 'Équipement de sécurité'] },
+                { name: 'Matériaux', subs: ['Acier', 'Bois', 'Ciment', 'Isolation'] }
+            ]},
+            { id: 14, name: 'Agriculture', icon: 'bi-tree', subcategories: [
+                { name: 'Machines agricoles', subs: ['Tracteurs', 'Moissonneuses', 'Pulvérisateurs'] },
+                { name: 'Semences & plants', subs: ['Céréales', 'Légumes', 'Fruits', 'Fleurs'] },
+                { name: 'Engrais & pesticides', subs: ['Engrais organiques', 'Engrais chimiques', 'Pesticides'] }
+            ]},
+            { id: 15, name: 'Fournitures professionnelles', icon: 'bi-briefcase', subcategories: [
+                { name: 'Bureau', subs: ['Papeterie', 'Mobilier de bureau', 'Organisation'] },
+                { name: 'Informatique professionnelle', subs: ['Serveurs', 'Matériel réseau', 'Périphériques'] },
+                { name: 'Services', subs: ['Impression', 'Emballage', 'Logistique'] }
+            ]}
+        ];
+        
+        // Images pour les catégories vedettes
+        const categoryImages = [
+            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Smartphones
+            'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Laptops
+            'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Televisions
+            'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Men's clothing
+            'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Women's clothing
+            'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Home furniture
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Appliances
+            'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Cosmetics
+            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Toys & games
+            'https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Sports & fitness
+            'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Automotive
+            'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Industrial tools
+            'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Food
+            'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Health & wellness
+            'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Consumer electronics
+            'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Jewelry & accessories
+            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'  // Cameras
+        ];
+        
+        // Données des catégories vedettes avec images
+        const featuredCategoriesData = [
+            { name: 'Smartphones', count: '124,580 produits', image: categoryImages[0] },
+            { name: 'Ordinateurs portables', count: '89,432 produits', image: categoryImages[1] },
+            { name: 'Téléviseurs', count: '45,230 produits', image: categoryImages[2] },
+            { name: 'Vêtements homme', count: '312,450 produits', image: categoryImages[3] },
+            { name: 'Vêtements femme', count: '287,560 produits', image: categoryImages[4] },
+            { name: 'Meubles maison', count: '156,780 produits', image: categoryImages[5] },
+            { name: 'Électroménager', count: '89,340 produits', image: categoryImages[6] },
+            { name: 'Cosmétiques', count: '67,890 produits', image: categoryImages[7] },
+            { name: 'Jouets & jeux', count: '45,670 produits', image: categoryImages[8] },
+            { name: 'Sports & fitness', count: '34,230 produits', image: categoryImages[9] },
+            { name: 'Automobile', count: '89,120 produits', image: categoryImages[10] },
+            { name: 'Outils industriels', count: '56,780 produits', image: categoryImages[11] },
+            { name: 'Alimentation', count: '123,450 produits', image: categoryImages[12] },
+            { name: 'Santé & bien-être', count: '78,900 produits', image: categoryImages[13] },
+            { name: 'Électronique grand public', count: '234,560 produits', image: categoryImages[14] },
+            { name: 'Bijoux & accessoires', count: '67,890 produits', image: categoryImages[15] }
+        ];
+        
+        // Images pour les produits
+        const productImages = [
+            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Smartphone
+            'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Smartwatch
+            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Camera
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Shoes
+            'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // LED lights
+            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Headphones
+            'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Drone
+            'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Laptop
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Home appliance
+            'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Tablet
+            'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Fitness tracker
+            'https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Sports equipment
+            'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // TV
+            'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Car parts
+            'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Tools
+            'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Health products
+            'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'  // Electronics
+        ];
+        
+        // Données des produits
+        const productsData = [
+            { name: 'Smartphone Android 128GB Dual SIM', price: '$189.99', originalPrice: '$229.99', vendor: 'TechWorld Ltd.', rating: 4.5, moq: '50 pièces', badge: 'Vente rapide', image: productImages[0] },
+            { name: 'Casque Bluetooth Réduction de bruit', price: '$45.50', originalPrice: '$59.99', vendor: 'AudioTech Inc.', rating: 4.2, moq: '100 pièces', badge: 'Nouveau', image: productImages[5] },
+            { name: 'Montre connectée Fitness Tracker', price: '$32.99', vendor: 'FitGear Co.', rating: 4.7, moq: '200 pièces', badge: 'Top vente', image: productImages[1] },
+            { name: 'Ordinateur portable Gaming 15.6"', price: '$899.99', vendor: 'GameMaster Pro', rating: 4.8, moq: '10 pièces', badge: 'Premium', image: productImages[7] },
+            { name: 'Enceinte Bluetooth Portable Waterproof', price: '$28.75', originalPrice: '$34.99', vendor: 'SoundWave Ltd.', rating: 4.3, moq: '150 pièces', badge: 'Promo', image: productImages[5] },
+            { name: 'Téléviseur LED 55" 4K UHD Smart TV', price: '$489.99', vendor: 'VisionPlus Inc.', rating: 4.6, moq: '20 pièces', badge: 'Nouveau', image: productImages[12] },
+            { name: 'Console de jeu portable', price: '$199.99', originalPrice: '$249.99', vendor: 'GameTech Global', rating: 4.9, moq: '30 pièces', badge: 'Vente rapide', image: productImages[8] },
+            { name: 'Tablette Android 10" 64GB', price: '$159.99', vendor: 'TabWorld Co.', rating: 4.4, moq: '50 pièces', badge: 'Éco+', image: productImages[9] },
+            { name: 'Drone avec caméra 4K GPS', price: '$299.99', vendor: 'SkyTech Ltd.', rating: 4.7, moq: '25 pièces', badge: 'Nouveau', image: productImages[6] },
+            { name: 'Casque VR Réalité virtuelle', price: '$89.99', originalPrice: '$119.99', vendor: 'VRExperience Inc.', rating: 4.5, moq: '100 pièces', badge: 'Promo', image: productImages[5] },
+            { name: 'Clavier mécanique RGB Gaming', price: '$65.99', vendor: 'KeyMaster Pro', rating: 4.8, moq: '80 pièces', badge: 'Top vente', image: productImages[16] },
+            { name: 'Souris gaming sans fil 16000DPI', price: '$42.50', vendor: 'MouseTech Co.', rating: 4.6, moq: '120 pièces', badge: 'Nouveau', image: productImages[16] },
+            { name: 'Disque SSD 1TB NVMe', price: '$78.99', originalPrice: '$89.99', vendor: 'StorageMaster Ltd.', rating: 4.7, moq: '200 pièces', badge: 'Promo', image: productImages[16] },
+            { name: 'Power Bank 30000mAh PD 65W', price: '$54.99', vendor: 'PowerTech Inc.', rating: 4.4, moq: '150 pièces', badge: 'Vente rapide', image: productImages[0] },
+            { name: 'Webcam 4K avec micro intégré', price: '$89.99', vendor: 'VideoPro Co.', rating: 4.6, moq: '100 pièces', badge: 'Nouveau', image: productImages[2] },
+            { name: 'Imprimante multifonction WiFi', price: '$129.99', originalPrice: '$159.99', vendor: 'PrintMaster Ltd.', rating: 4.3, moq: '40 pièces', badge: 'Promo', image: productImages[16] }
+        ];
+        
+        // Images pour les vendeurs
+        const vendorImages = [
+            'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        ];
+        
+        // Données des vendeurs
+        const vendorsData = [
+            { name: 'GlobalTech Suppliers', location: 'Chine', products: '12,450 produits', rating: 4.8, image: vendorImages[0] },
+            { name: 'FashionHub International', location: 'Turquie', products: '8,920 produits', rating: 4.7, image: vendorImages[1] },
+            { name: 'HomeLiving Factory', location: 'Vietnam', products: '5,670 produits', rating: 4.6, image: vendorImages[2] },
+            { name: 'BeautyEssence Co.', location: 'Corée du Sud', products: '3,450 produits', rating: 4.9, image: vendorImages[3] },
+            { name: 'Industrial Parts Global', location: 'Allemagne', products: '23,150 produits', rating: 4.7, image: vendorImages[4] },
+            { name: 'AutoParts Direct', location: 'Japon', products: '9,870 produits', rating: 4.8, image: vendorImages[5] },
+            { name: 'SportGear Manufacturers', location: 'USA', products: '6,540 produits', rating: 4.5, image: vendorImages[6] },
+            { name: 'HealthCare Supplies', location: 'Inde', products: '4,320 produits', rating: 4.6, image: vendorImages[7] },
+            { name: 'Electronic Components Ltd.', location: 'Taïwan', products: '15,780 produits', rating: 4.9, image: vendorImages[8] },
+            { name: 'FoodImport Exporters', location: 'Brésil', products: '2,980 produits', rating: 4.4, image: vendorImages[9] }
+        ];
+        
+        // Données des blocs de catégories
+        const categoryBlocksData = [
+            { 
+                title: 'Électronique grand public', 
+                icon: 'bi-cpu',
+                subcategories: ['Smartphones', 'Ordinateurs portables', 'Téléviseurs', 'Audio', 'Caméras', 'Accessoires'],
+                products: productsData.slice(0, 6)
+            },
+            { 
+                title: 'Mode & accessoires', 
+                icon: 'bi-person-heels',
+                subcategories: ['Vêtements homme', 'Vêtements femme', 'Chaussures', 'Sacs', 'Bijoux', 'Montres'],
+                products: productsData.slice(2, 8)
+            },
+            { 
+                title: 'Maison & électroménager', 
+                icon: 'bi-house',
+                subcategories: ['Meubles', 'Décoration', 'Luminaires', 'Cuisine', 'Électroménager', 'Jardin'],
+                products: productsData.slice(4, 10)
+            },
+            { 
+                title: 'Beauté & santé', 
+                icon: 'bi-droplet',
+                subcategories: ['Cosmétiques', 'Soins peau', 'Parfums', 'Soins cheveux', 'Santé', 'Équipement médical'],
+                products: productsData.slice(6, 12)
+            }
+        ];
+        
+        // ===== FONCTIONS UTILITAIRES =====
+        
+        // Générer les étoiles de notation
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="bi bi-star-fill"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="bi bi-star-half"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="bi bi-star"></i>';
+            }
+            
+            return stars;
+        }
+        
+        // Obtenir une image aléatoire pour les vendeurs si aucune n'est spécifiée
+        function getRandomVendorImage(index) {
+            return vendorImages[index % vendorImages.length];
+        }
+        
+        // ===== INITIALISATION DE L'INTERFACE =====
+        
+        // Initialiser le méga-menu
+        function initializeMegaMenu() {
+            const megaCategories = document.getElementById('megaCategories');
+            const megaSubcategories = document.getElementById('megaSubcategories');
+            const sidebarCategories = document.getElementById('sidebarCategories');
+            
+            // Vider les conteneurs
+            megaCategories.innerHTML = '';
+            megaSubcategories.innerHTML = '';
+            sidebarCategories.innerHTML = '';
+            
+            // Remplir les catégories principales
+            mainCategories.forEach((category, index) => {
+                // Méga-menu catégories
+                const categoryItem = document.createElement('div');
+                categoryItem.className = 'category-item';
+                categoryItem.dataset.id = category.id;
+                categoryItem.innerHTML = `
+                    <span>${category.name}</span>
+                    <i class="bi bi-chevron-right"></i>
+                `;
+                
+                categoryItem.addEventListener('mouseenter', function() {
+                    // Activer cette catégorie
+                    document.querySelectorAll('.category-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Afficher les sous-catégories
+                    displaySubcategories(category.id);
+                });
+                
+                megaCategories.appendChild(categoryItem);
+                
+                // Sidebar catégories
+                const sidebarItem = document.createElement('a');
+                sidebarItem.href = '#';
+                sidebarItem.className = 'category-sidebar-item';
+                sidebarItem.innerHTML = `
+                    <span>${category.name}</span>
+                    <i class="bi bi-chevron-right"></i>
+                `;
+                sidebarCategories.appendChild(sidebarItem);
+                
+                // Activer la première catégorie par défaut
+                if (index === 0) {
+                    categoryItem.classList.add('active');
+                    displaySubcategories(category.id);
+                }
+            });
+        }
+        
+        // Afficher les sous-catégories
+        function displaySubcategories(categoryId) {
+            const megaSubcategories = document.getElementById('megaSubcategories');
+            const category = mainCategories.find(cat => cat.id === categoryId);
+            
+            if (!category) return;
+            
+            megaSubcategories.innerHTML = '';
+            
+            category.subcategories.forEach(subcategory => {
+                const section = document.createElement('div');
+                section.className = 'subcategory-section';
+                section.innerHTML = `
+                    <h4>${subcategory.name}</h4>
+                    <ul class="subcategory-list">
+                        ${subcategory.subs.map(sub => `<li><a href="#">${sub}</a></li>`).join('')}
+                    </ul>
+                `;
+                megaSubcategories.appendChild(section);
+            });
+        }
+        
+        // Initialiser les catégories vedettes
+        function initializeFeaturedCategories() {
+            const container = document.getElementById('featuredCategories');
+            container.innerHTML = '';
+            
+            featuredCategoriesData.forEach((category, index) => {
+                const card = document.createElement('a');
+                card.href = '#';
+                card.className = 'category-card';
+                card.innerHTML = `
+                    <div class="category-image">
+                        <img src="${category.image || categoryImages[index % categoryImages.length]}" alt="${category.name}">
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">${category.name}</div>
+                        <div class="category-count">${category.count}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Générer une carte produit
+        function generateProductCard(product, index) {
+            const hasOriginalPrice = product.originalPrice;
+            
+            return `
+                <div class="product-card">
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    <div class="product-image">
+                        <img src="${product.image || productImages[index % productImages.length]}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">
+                            ${product.price}
+                            ${hasOriginalPrice ? `<span class="product-original-price">${product.originalPrice}</span>` : ''}
+                        </div>
+                        <div class="product-moq">MOQ: ${product.moq}</div>
+                        <div class="product-vendor">
+                            ${product.vendor}
+                            <i class="bi bi-patch-check-fill vendor-verified"></i>
+                        </div>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                ${generateStarRating(product.rating)}
+                            </div>
+                            <div class="rating-count">(${Math.floor(Math.random() * 2000) + 500})</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Voir</button>
+                            <button class="btn-add-to-cart">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Initialiser les produits tendance
+        function initializeTrendingProducts() {
+            const container = document.getElementById('trendingProducts');
+            container.innerHTML = '';
+            
+            productsData.forEach((product, index) => {
+                container.innerHTML += generateProductCard(product, index);
+            });
+        }
+        
+        // Initialiser les blocs de catégories
+        function initializeCategoryBlocks() {
+            const container = document.getElementById('categoryBlocks');
+            container.innerHTML = '';
+            
+            categoryBlocksData.forEach(block => {
+                const blockElement = document.createElement('div');
+                blockElement.className = 'category-block';
+                
+                // Générer les produits du bloc
+                let productsHTML = '';
+                block.products.forEach((product, index) => {
+                    productsHTML += generateProductCard(product, index);
+                });
+                
+                blockElement.innerHTML = `
+                    <div class="category-block-header">
+                        <div class="category-block-title">
+                            <i class="bi ${block.icon}"></i> ${block.title}
+                        </div>
+                        <div class="category-block-subcategories">
+                            ${block.subcategories.map(sub => `<a href="#" class="subcategory-link">${sub}</a>`).join('')}
+                        </div>
+                    </div>
+                    <div class="category-block-products">
+                        ${productsHTML}
+                    </div>
+                `;
+                
+                container.appendChild(blockElement);
+            });
+        }
+        
+        // Initialiser les meilleurs vendeurs
+        function initializeTopVendors() {
+            const container = document.getElementById('topVendors');
+            container.innerHTML = '';
+            
+            vendorsData.forEach((vendor, index) => {
+                const card = document.createElement('div');
+                card.className = 'vendor-card';
+                card.innerHTML = `
+                    <div class="vendor-logo">
+                        <img src="${vendor.image || getRandomVendorImage(index)}" alt="${vendor.name}">
+                    </div>
+                    <div class="vendor-info">
+                        <div class="vendor-name">${vendor.name}</div>
+                        <div class="vendor-location">
+                            <i class="bi bi-geo-alt"></i> ${vendor.location}
+                        </div>
+                        <div class="vendor-products">${vendor.products}</div>
+                        <div class="vendor-rating">
+                            <div class="rating-stars">
+                                ${generateStarRating(vendor.rating)}
+                            </div>
+                            <div class="rating-count">${vendor.rating}/5</div>
+                        </div>
+                        <button class="btn-visit-store">Visiter la boutique</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Initialiser les offres du jour
+        function initializeDailyDeals() {
+            const container = document.getElementById('dailyDeals');
+            container.innerHTML = '';
+            
+            // Prendre les 8 premiers produits avec badge "Promo" ou "Vente rapide"
+            const dealProducts = productsData
+                .filter(p => p.badge === 'Promo' || p.badge === 'Vente rapide')
+                .slice(0, 8);
+            
+            dealProducts.forEach((product, index) => {
+                container.innerHTML += generateProductCard(product, index);
+            });
+        }
+        
+        // Initialiser les nouveautés
+        function initializeNewArrivals() {
+            const container = document.getElementById('newArrivals');
+            container.innerHTML = '';
+            
+            // Prendre 8 produits au hasard
+            const shuffledProducts = [...productsData].sort(() => 0.5 - Math.random()).slice(0, 8);
+            
+            shuffledProducts.forEach((product, index) => {
+                container.innerHTML += generateProductCard({...product, badge: 'Nouveau'}, index);
+            });
+        }
+        
+        // Initialiser les recommandations
+        function initializeRecommendations() {
+            const container = document.getElementById('recommendations');
+            container.innerHTML = '';
+            
+            // Prendre 8 produits au hasard
+            const shuffledProducts = [...productsData].sort(() => 0.5 - Math.random()).slice(0, 8);
+            
+            shuffledProducts.forEach((product, index) => {
+                container.innerHTML += generateProductCard(product, index);
+            });
+        }
+        
+        // Initialiser le compte à rebours
+        function initializeCountdown() {
+            const hoursElement = document.getElementById('countdown-hours');
+            const minutesElement = document.getElementById('countdown-minutes');
+            const secondsElement = document.getElementById('countdown-seconds');
+            
+            // Définir une heure de fin (12 heures dans le futur)
+            const endTime = new Date();
+            endTime.setHours(endTime.getHours() + 12);
+            
+            function updateCountdown() {
+                const now = new Date();
+                const difference = endTime - now;
+                
+                if (difference <= 0) {
+                    // Le compte à rebours est terminé
+                    hoursElement.textContent = '00';
+                    minutesElement.textContent = '00';
+                    secondsElement.textContent = '00';
+                    return;
+                }
+                
+                const hours = Math.floor(difference / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            // Mettre à jour immédiatement puis toutes les secondes
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // ===== GESTION DES ÉVÉNEMENTS =====
+        
+        // Gérer le méga-menu
+        function setupEventListeners() {
+            const categoriesBtn = document.getElementById('categoriesBtn');
+            const megaMenu = document.getElementById('megaMenu');
+            
+            // Ouvrir/fermer le méga-menu au survol
+            categoriesBtn.addEventListener('mouseenter', () => {
+                megaMenu.classList.add('active');
+            });
+            
+            categoriesBtn.addEventListener('mouseleave', (e) => {
+                // Vérifier si la souris est passée au méga-menu
+                if (!megaMenu.contains(e.relatedTarget)) {
+                    megaMenu.classList.remove('active');
+                }
+            });
+            
+            megaMenu.addEventListener('mouseleave', (e) => {
+                // Vérifier si la souris est passée au bouton catégories
+                if (!categoriesBtn.contains(e.relatedTarget)) {
+                    megaMenu.classList.remove('active');
+                }
+            });
+            
+            // Gérer la recherche
+            const searchForm = document.getElementById('searchForm');
+            const searchInput = document.getElementById('searchInput');
+            
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    alert(`Recherche de: "${query}"\n(En production, cela redirigerait vers la page de résultats)`);
+                    // En production: window.location.href = `/search?q=${encodeURIComponent(query)}`;
+                }
+            });
+            
+            // Gérer les suggestions de recherche
+            searchInput.addEventListener('input', function() {
+                // En production, on ferait une requête AJAX pour les suggestions
+                // Pour l'exemple, nous affichons simplement un message
+            });
+            
+            // Gérer les clics sur les produits
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn-add-to-cart')) {
+                    e.preventDefault();
+                    alert('Produit ajouté au panier');
+                    // En production: appel AJAX pour ajouter au panier
+                }
+                
+                if (e.target.classList.contains('btn-quick-view')) {
+                    e.preventDefault();
+                    alert('Affichage des détails du produit');
+                    // En production: ouvrir une modale ou rediriger vers la page produit
+                }
+                
+                if (e.target.classList.contains('btn-visit-store')) {
+                    e.preventDefault();
+                    alert('Redirection vers la boutique du vendeur');
+                    // En production: window.location.href = `/vendor/${vendorId}`;
+                }
+            });
+            
+            // Gérer les hover sur les cartes
+            const productCards = document.querySelectorAll('.product-card, .vendor-card, .category-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
+        
+        // ===== INITIALISATION AU CHARGEMENT =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser tous les composants
+            initializeMegaMenu();
+            initializeFeaturedCategories();
+            initializeTrendingProducts();
+            initializeCategoryBlocks();
+            initializeTopVendors();
+            initializeDailyDeals();
+            initializeNewArrivals();
+            initializeRecommendations();
+            initializeCountdown();
+            setupEventListeners();
+            
+            console.log('AslazMarket - Marketplace frontend initialisé avec succès');
+            console.log(`${mainCategories.length} catégories principales chargées`);
+            console.log(`${productsData.length} produits chargés`);
+            console.log(`${vendorsData.length} vendeurs chargés`);
+            console.log(`${categoryImages.length} images de catégories disponibles`);
+            console.log(`${productImages.length} images de produits disponibles`);
+        });
+    </script>
+</body>
+</html>
