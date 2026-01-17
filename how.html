@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment acheter - AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .page-header {
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--gray-dark);
+            max-width: 800px;
+        }
+        
+        .steps-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-card {
+            background-color: var(--light-color);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .step-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .step-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-left: 40px;
+        }
+        
+        .step-content {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .step-content p {
+            margin-bottom: 10px;
+        }
+        
+        .step-list {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .step-list li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .contact-section {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-description {
+            font-size: 13px;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
+        }
+        
+        .btn-contact {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-contact:hover {
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-color);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .step-card {
+                padding: 20px 15px 15px 15px;
+            }
+            
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                top: -10px;
+                left: -10px;
+            }
+            
+            .contact-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="connexion.html" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="inscription.html" class="top-bar-link"><i class="bi bi-person-plus"></i> Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Guide d'achat</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="compte.html" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Compte</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html" class="active"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="devenir-vendeur.html"><i class="bi bi-person-badge"></i> Devenir vendeur</a></li>
+                    <li><a href="support.html"><i class="bi bi-question-circle"></i> Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active">Comment acheter</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="container-xxl">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Comment acheter sur AslazMarket</h1>
+                <p class="page-subtitle">
+                    Découvrez comment effectuer vos achats en toute simplicité sur notre marketplace. 
+                    Notre système connecte directement les acheteurs avec les vendeurs pour des transactions rapides et sécurisées.
+                </p>
+            </div>
+
+            <!-- Steps Section -->
+            <section class="steps-section">
+                <h2 class="section-title">Le processus d'achat en 5 étapes simples</h2>
+                
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Trouver un produit</h3>
+                        <div class="step-content">
+                            <p>Parcourez les catégories et sous-catégories pour trouver le produit qui vous intéresse.</p>
+                            <ul class="step-list">
+                                <li>Utilisez la barre de recherche pour trouver des produits spécifiques</li>
+                                <li>Filtrez par prix, catégorie, vendeur ou note</li>
+                                <li>Consultez les fiches produits détaillées avec photos et descriptions</li>
+                            </ul>
+                            <p>Tous les produits sont publiés par des vendeurs vérifiés qui gèrent leur propre boutique sur AslazMarket.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Vérifier les détails</h3>
+                        <div class="step-content">
+                            <p>Avant d'acheter, vérifiez attentivement les informations du produit :</p>
+                            <ul class="step-list">
+                                <li>Prix unitaire et prix en gros (MOQ - Minimum Order Quantity)</li>
+                                <li>Description complète du produit et spécifications</li>
+                                <li>Photos sous différents angles</li>
+                                <li>Disponibilité en stock</li>
+                                <li>Conditions de livraison et délais</li>
+                                <li>Politique de retour du vendeur</li>
+                            </ul>
+                            <div class="highlight-box">
+                                <strong>Astuce :</strong> Consultez les avis et évaluations des autres acheteurs pour vous assurer de la qualité du produit et du sérieux du vendeur.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Contacter le vendeur</h3>
+                        <div class="step-content">
+                            <p>Cliquez sur le bouton "Contacter le vendeur" ou "Acheter maintenant" sur la fiche produit.</p>
+                            <p>Vous serez automatiquement redirigé vers :</p>
+                            <ul class="step-list">
+                                <li><strong>WhatsApp du vendeur</strong> pour discuter directement de votre commande</li>
+                                <li><strong>Appel téléphonique direct</strong> si vous préférez parler au vendeur</li>
+                            </ul>
+                            <p>Cette mise en contact directe permet :</p>
+                            <ul class="step-list">
+                                <li>De négocier les prix (surtout pour les commandes en gros)</li>
+                                <li>De poser des questions spécifiques sur le produit</li>
+                                <li>De convenir des modalités de livraison</li>
+                                <li>D'obtenir des informations sur le paiement</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Finaliser la transaction</h3>
+                        <div class="step-content">
+                            <p>Une fois en contact avec le vendeur, finalisez votre achat :</p>
+                            <ul class="step-list">
+                                <li><strong>Confirmez les détails</strong> de votre commande (quantité, spécifications)</li>
+                                <li><strong>Négociez le prix final</strong> si nécessaire</li>
+                                <li><strong>Convenez du mode de paiement</strong> avec le vendeur</li>
+                                <li><strong>Établissez les conditions de livraison</strong> et les délais</li>
+                            </ul>
+                            <div class="warning-box">
+                                <strong>Important :</strong> AslazMarket agit comme une plateforme de mise en relation. La transaction se fait directement entre l'acheteur et le vendeur. Nous recommandons toujours de demander une facture et de conserver une trace écrite de l'accord.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Réception et évaluation</h3>
+                        <div class="step-content">
+                            <p>Une fois votre commande reçue :</p>
+                            <ul class="step-list">
+                                <li><strong>Vérifiez le produit</strong> à réception pour vous assurer qu'il correspond à la commande</li>
+                                <li><strong>Contactez le vendeur</strong> en cas de problème avec la livraison ou le produit</li>
+                                <li><strong>Laissez une évaluation</strong> sur la fiche du vendeur pour aider les futurs acheteurs</li>
+                                <li><strong>Signalez tout problème</strong> à notre équipe de support si nécessaire</li>
+                            </ul>
+                            <p>Vos évaluations aident à maintenir la qualité de notre marketplace et à identifier les vendeurs les plus fiables.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Methods Section -->
+            <section class="contact-section">
+                <h2 class="section-title">Comment contacter les vendeurs</h2>
+                <p>Sur AslazMarket, nous privilégions le contact direct entre acheteurs et vendeurs pour des transactions plus transparentes et personnalisées.</p>
+                
+                <div class="contact-grid">
+                    <!-- WhatsApp -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <h4 class="contact-title">WhatsApp Direct</h4>
+                        <p class="contact-description">
+                            Cliquez sur "Contacter" pour être redirigé vers WhatsApp du vendeur. Idéal pour les discussions textuelles, partage de photos et négociations.
+                        </p>
+                        <a href="#" class="btn-contact">Voir un exemple</a>
+                    </div>
+
+                    <!-- Appel direct -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h4 class="contact-title">Appel Téléphonique</h4>
+                        <p class="contact-description">
+                            Pour les commandes importantes ou questions complexes, contactez directement le vendeur par téléphone.
+                        </p>
+                        <a href="#" class="btn-contact">Appeler un vendeur</a>
+                    </div>
+
+                    <!-- Message interne -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-chat"></i>
+                        </div>
+                        <h4 class="contact-title">Messagerie interne</h4>
+                        <p class="contact-description">
+                            Envoyez un message au vendeur via notre plateforme. Vos conversations sont sauvegardées pour référence.
+                        </p>
+                        <a href="#" class="btn-contact">Envoyer un message</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">Questions fréquentes sur l'achat</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Pourquoi contacter le vendeur directement plutôt que d'acheter sur la plateforme ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Notre modèle de mise en contact direct permet :</p>
+                        <ul>
+                            <li>Une négociation plus facile des prix, surtout pour les commandes en gros</li>
+                            <li>Des échanges personnalisés sur les spécifications du produit</li>
+                            <li>Des arrangements flexibles pour la livraison et le paiement</li>
+                            <li>Une relation de confiance directe entre acheteur et vendeur</li>
+                            <li>Une réduction des frais de transaction</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment m'assurer de la fiabilité d'un vendeur ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Plusieurs indicateurs vous aident à évaluer la fiabilité d'un vendeur :</p>
+                        <ul>
+                            <li><strong>Badges de vérification :</strong> Les vendeurs avec badge vérifié ont fourni des documents d'identité</li>
+                            <li><strong>Évaluations et avis :</strong> Consultez les retours des acheteurs précédents</li>
+                            <li><strong>Ancienneté sur la plateforme :</strong> Les vendeurs présents depuis longtemps sont généralement plus fiables</li>
+                            <li><strong>Réactivité aux messages :</strong> Un vendeur sérieux répond généralement rapidement</li>
+                            <li><strong>Produits détaillés :</strong> Des fiches produits complètes avec photos de qualité sont un bon signe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels sont les modes de paiement acceptés ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Les modes de paiement varient selon les vendeurs. Les plus courants sont :</p>
+                        <ul>
+                            <li><strong>Virement bancaire :</strong> Pour les commandes importantes, souvent avec acompte</li>
+                            <li><strong>Mobile money :</strong> Populaire dans de nombreuses régions</li>
+                            <li><strong>Paiement à la livraison :</strong> Pour les commandes nationales</li>
+                            <li><strong>Cartes de crédit/débit :</strong> Certains vendeurs acceptent les paiements par carte</li>
+                            <li><strong>PayPal :</strong> Pour les transactions internationales</li>
+                        </ul>
+                        <p>Discutez directement avec le vendeur pour convenir du mode de paiement qui vous convient.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Que faire en cas de problème avec ma commande ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si vous rencontrez un problème :</p>
+                        <ol>
+                            <li><strong>Contactez d'abord le vendeur :</strong> La plupart des problèmes se résolvent directement</li>
+                            <li><strong>Fournissez des preuves :</strong> Photos du produit défectueux, captures d'écran des conversations, etc.</li>
+                            <li><strong>Si pas de résolution :</strong> Contactez notre support avec toutes les preuves</li>
+                            <li><strong>Laissez une évaluation honnête :</strong> Pour informer les autres acheteurs</li>
+                        </ol>
+                        <p>Notre équipe de support peut intervenir en cas de litige grave ou de vendeur malhonnête.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment fonctionne la livraison ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La livraison est organisée directement avec le vendeur :</p>
+                        <ul>
+                            <li><strong>Livraison locale :</strong> Pour les produits dans votre région</li>
+                            <li><strong>Livraison nationale :</strong> Via des services de messagerie</li>
+                            <li><strong>Livraison internationale :</strong> Pour les commandes depuis l'étranger</li>
+                            <li><strong>Retrait sur place :</strong> Si le vendeur a un point de vente physique</li>
+                        </ul>
+                        <p>Les frais et délais de livraison doivent être clairement convenus avec le vendeur avant le paiement.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
+                            Marketplace B2B & B2C connectant acheteurs et vendeurs du monde entier. Transactions directes, prix négociables, confiance et simplicité.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Acheter -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Acheter</h4>
+                        <ul class="footer-links">
+                            <li><a href="comment-acheter.html">Comment acheter</a></li>
+                            <li><a href="categories.html">Catégories</a></li>
+                            <li><a href="vendeurs.html">Vendeurs vérifiés</a></li>
+                            <li><a href="promotions.html">Promotions</a></li>
+                            <li><a href="paiement-securise.html">Paiement sécurisé</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Vendre -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Vendre</h4>
+                        <ul class="footer-links">
+                            <li><a href="devenir-vendeur.html">Devenir vendeur</a></li>
+                            <li><a href="conditions-vente.html">Conditions de vente</a></li>
+                            <li><a href="outils-vendeurs.html">Outils vendeurs</a></li>
+                            <li><a href="commission.html">Commission</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html">Centre d'aide</a></li>
+                            <li><a href="contact.html">Contactez-nous</a></li>
+                            <li><a href="signalement.html">Signaler un problème</a></li>
+                            <li><a href="confidentialite.html">Confidentialité</a></li>
+                            <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Réseaux sociaux -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Suivez-nous</h4>
+                        <div style="display: flex; gap: 15px; margin-top: 15px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-twitter"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-instagram"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-envelope"></i> support@aslazmarket.com</p>
+                            <p><i class="bi bi-telephone"></i> +33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    Marketplace B2B & B2C
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Gestion de la FAQ (ouvrir/fermer les questions)
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    // Fermer toutes les autres réponses
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Ouvrir/fermer cette réponse
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+            
+            // Animation des cartes d'étapes au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes d'étapes
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            console.log('Page "Comment acheter" chargée avec succès');
+        });
+    </script>
+</body>
+</html>

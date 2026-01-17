@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Vendeur - Inscription Vendeur AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --info-color: #2196f3;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: calc(100vh - 200px);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        /* ===== BENEFITS SECTION ===== */
+        .benefits-section {
+            margin-bottom: 40px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .benefit-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .benefit-description {
+            font-size: 13px;
+            color: var(--gray-dark);
+            line-height: 1.5;
+        }
+        
+        /* ===== REGISTRATION CONTAINER ===== */
+        .registration-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .registration-sidebar {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .registration-main {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        /* ===== REGISTRATION STEPS ===== */
+        .registration-steps {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .step-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            border: 2px solid var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--gray-medium);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        
+        .step-item.active .step-number {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .step-info {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .step-description {
+            font-size: 12px;
+            color: var(--gray-medium);
+        }
+        
+        /* ===== INFO BOX ===== */
+        .info-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            padding: 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 30px;
+        }
+        
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .info-box-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .info-box-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        /* ===== FORM STYLES ===== */
+        .form-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .form-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--accent-color);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .form-label.required:after {
+            content: ' *';
+            color: var(--accent-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: var(--accent-color);
+        }
+        
+        .form-text {
+            font-size: 12px;
+            color: var(--gray-medium);
+            margin-top: 5px;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .form-check-label {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.4;
+        }
+        
+        .form-check-label a {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .error-message {
+            color: var(--accent-color);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* ===== DOCUMENT UPLOAD ===== */
+        .document-upload {
+            border: 2px dashed var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+        
+        .document-upload:hover {
+            border-color: var(--primary-color);
+            background-color: var(--light-color);
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            color: var(--gray-medium);
+            margin-bottom: 15px;
+        }
+        
+        .upload-text {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .upload-subtext {
+            font-size: 12px;
+            color: var(--gray-medium);
+            margin-bottom: 15px;
+        }
+        
+        .uploaded-files {
+            margin-top: 20px;
+        }
+        
+        .uploaded-file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .file-icon {
+            color: var(--primary-color);
+        }
+        
+        .file-remove {
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d32f2f;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--gray-light);
+        }
+        
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* ===== PROGRESS BAR ===== */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .progress-percentage {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+        
+        .modal-icon {
+            font-size: 60px;
+            color: var(--success-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .modal-text {
+            color: var(--gray-dark);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .registration-container {
+                flex-direction: column;
+            }
+            
+            .registration-steps {
+                position: static;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="connexion.html" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="inscription-acheteur.html" class="top-bar-link"><i class="bi bi-person-plus"></i> Inscription acheteur</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Devenir Vendeur</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="aide-support.html" class="action-item">
+                            <i class="bi bi-question-circle action-icon"></i>
+                            <span>Aide</span>
+                        </a>
+                        <a href="connexion.html" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Connexion</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="protection-acheteur.html"><i class="bi bi-shield-check"></i> Protection</a></li>
+                    <li><a href="devenir-vendeur.html" class="active"><i class="bi bi-person-badge"></i> Devenir vendeur</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="devenir-vendeur.html">Devenir vendeur</a></li>
+                <li class="breadcrumb-item active">Inscription vendeur</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="container-xxl">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Devenir Vendeur sur AslazMarket</h1>
+                <p class="page-subtitle">
+                    Vendez vos produits à des millions d'acheteurs internationaux. Créez votre boutique en quelques minutes
+                    et commencez à vendre dès aujourd'hui.
+                </p>
+            </div>
+
+            <!-- Benefits Section -->
+            <section class="benefits-section">
+                <h2 class="section-title text-center mb-4">Pourquoi vendre sur AslazMarket ?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="benefit-title">Audience mondiale</h3>
+                        <p class="benefit-description">
+                            Accédez à une communauté internationale de millions d'acheteurs B2B et B2C.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <h3 class="benefit-title">Frais réduits</h3>
+                        <p class="benefit-description">
+                            Commission de seulement 5% sur les ventes. Pas de frais d'inscription ni de publication.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h3 class="benefit-title">Outils performants</h3>
+                        <p class="benefit-description">
+                            Tableau de bord complet, gestion des commandes, analytics et support dédié.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="benefit-title">Sécurité garantie</h3>
+                        <p class="benefit-description">
+                            Paiements sécurisés, protection vendeur et système de réputation pour garantir votre succès.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Registration Container -->
+            <div class="registration-container">
+                <!-- Sidebar -->
+                <div class="registration-sidebar">
+                    <!-- Registration Steps -->
+                    <div class="registration-steps">
+                        <div class="step-item active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <div class="step-title">Informations personnelles</div>
+                                <div class="step-description">Vos coordonnées et identité</div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <div class="step-title">Informations entreprise</div>
+                                <div class="step-description">Détails de votre activité</div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <div class="step-title">Informations boutique</div>
+                                <div class="step-description">Configuration de votre boutique</div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-info">
+                                <div class="step-title">Documents</div>
+                                <div class="step-description">Pièces justificatives</div>
+                            </div>
+                        </div>
+
+                        <div class="step-item" data-step="5">
+                            <div class="step-number">5</div>
+                            <div class="step-info">
+                                <div class="step-title">Compte & Conditions</div>
+                                <div class="step-description">Finalisation de l'inscription</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="info-box">
+                        <h4 class="info-box-title">
+                            <i class="bi bi-info-circle"></i> Documents nécessaires
+                        </h4>
+                        <ul class="info-box-list">
+                            <li>Pièce d'identité recto-verso (Carte nationale, Passeport ou Permis de conduire)</li>
+                            <li>Justificatif de domicile de moins de 3 mois</li>
+                            <li>Extrait K-bis ou SIRET (pour les entreprises)</li>
+                            <li>RIB ou IBAN pour recevoir vos paiements</li>
+                            <li>Photos des produits que vous souhaitez vendre</li>
+                        </ul>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Progression</span>
+                            <span class="progress-percentage" id="progressPercentage">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Form -->
+                <div class="registration-main">
+                    <form id="vendorRegistrationForm" class="form-container">
+                        <!-- Étape 1: Informations personnelles -->
+                        <div class="form-section active" data-step="1">
+                            <h3 class="section-title">
+                                <i class="bi bi-person"></i> Informations personnelles
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label required" for="firstName">Prénom</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                    <div class="error-message" id="firstNameError">Veuillez entrer votre prénom</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="lastName">Nom</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                    <div class="error-message" id="lastNameError">Veuillez entrer votre nom</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label required" for="email">Adresse email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="error-message" id="emailError">Veuillez entrer une adresse email valide</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="phone">Téléphone</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                    <div class="error-message" id="phoneError">Veuillez entrer un numéro de téléphone valide</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="address">Adresse complète</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                                <div class="error-message" id="addressError">Veuillez entrer votre adresse</div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label required" for="city">Ville</label>
+                                    <input type="text" class="form-control" id="city" name="city" required>
+                                    <div class="error-message" id="cityError">Veuillez entrer votre ville</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="postalCode">Code postal</label>
+                                    <input type="text" class="form-control" id="postalCode" name="postalCode" required>
+                                    <div class="error-message" id="postalCodeError">Veuillez entrer votre code postal</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="country">Pays</label>
+                                    <select class="form-select" id="country" name="country" required>
+                                        <option value="">Sélectionnez votre pays</option>
+                                        <option value="FR">France</option>
+                                        <option value="BE">Belgique</option>
+                                        <option value="CH">Suisse</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="MA">Maroc</option>
+                                        <option value="TN">Tunisie</option>
+                                        <option value="SN">Sénégal</option>
+                                        <option value="CI">Côte d'Ivoire</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                    <div class="error-message" id="countryError">Veuillez sélectionner votre pays</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2: Informations entreprise -->
+                        <div class="form-section" data-step="2">
+                            <h3 class="section-title">
+                                <i class="bi bi-building"></i> Informations entreprise
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="companyName">Nom de l'entreprise (optionnel)</label>
+                                <input type="text" class="form-control" id="companyName" name="companyName">
+                                <div class="form-text">Laissez vide si vous êtes un particulier</div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="siret">Numéro SIRET/SIREN</label>
+                                    <input type="text" class="form-control" id="siret" name="siret">
+                                    <div class="form-text">Pour les entreprises françaises</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="vatNumber">Numéro de TVA</label>
+                                    <input type="text" class="form-control" id="vatNumber" name="vatNumber">
+                                    <div class="form-text">Si applicable</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="businessType">Type d'activité</label>
+                                <select class="form-select" id="businessType" name="businessType" required>
+                                    <option value="">Sélectionnez votre type d'activité</option>
+                                    <option value="particulier">Particulier</option>
+                                    <option value="autoentrepreneur">Auto-entrepreneur</option>
+                                    <option value="entreprise">Entreprise (SARL, SAS, etc.)</option>
+                                    <option value="association">Association</option>
+                                    <option value="artisan">Artisan</option>
+                                    <option value="agriculteur">Agriculteur</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                                <div class="error-message" id="businessTypeError">Veuillez sélectionner votre type d'activité</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="yearsExperience">Expérience dans la vente</label>
+                                <select class="form-select" id="yearsExperience" name="yearsExperience" required>
+                                    <option value="">Sélectionnez votre expérience</option>
+                                    <option value="0">Débutant (moins d'1 an)</option>
+                                    <option value="1-3">1-3 ans</option>
+                                    <option value="3-5">3-5 ans</option>
+                                    <option value="5-10">5-10 ans</option>
+                                    <option value="10+">Plus de 10 ans</option>
+                                </select>
+                                <div class="error-message" id="yearsExperienceError">Veuillez sélectionner votre expérience</div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3: Informations boutique -->
+                        <div class="form-section" data-step="3">
+                            <h3 class="section-title">
+                                <i class="bi bi-shop"></i> Informations boutique
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="storeName">Nom de votre boutique</label>
+                                <input type="text" class="form-control" id="storeName" name="storeName" required>
+                                <div class="form-text">Ce nom apparaîtra sur votre page boutique</div>
+                                <div class="error-message" id="storeNameError">Veuillez entrer un nom pour votre boutique</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="storeDescription">Description de la boutique</label>
+                                <textarea class="form-control form-textarea" id="storeDescription" name="storeDescription" required placeholder="Décrivez votre boutique, vos produits, votre philosophie..."></textarea>
+                                <div class="form-text">Minimum 100 caractères. Cette description apparaîtra sur votre page boutique.</div>
+                                <div class="error-message" id="storeDescriptionError">Veuillez décrire votre boutique (minimum 100 caractères)</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label required" for="mainCategory">Catégorie principale</label>
+                                <select class="form-select" id="mainCategory" name="mainCategory" required>
+                                    <option value="">Sélectionnez votre catégorie principale</option>
+                                    <option value="electronics">Électronique</option>
+                                    <option value="phones">Téléphones & accessoires</option>
+                                    <option value="computers">Informatique</option>
+                                    <option value="fashion-men">Mode homme</option>
+                                    <option value="fashion-women">Mode femme</option>
+                                    <option value="home">Maison & décoration</option>
+                                    <option value="appliances">Électroménager</option>
+                                    <option value="beauty">Beauté & soins</option>
+                                    <option value="health">Santé</option>
+                                    <option value="food">Alimentation</option>
+                                    <option value="sports">Sports & loisirs</option>
+                                    <option value="auto">Automobile & moto</option>
+                                    <option value="industry">Industrie & BTP</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="supplies">Fournitures professionnelles</option>
+                                </select>
+                                <div class="error-message" id="mainCategoryError">Veuillez sélectionner votre catégorie principale</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="website">Site web (optionnel)</label>
+                                <input type="url" class="form-control" id="website" name="website" placeholder="https://www.votresite.com">
+                                <div class="form-text">Si vous avez déjà un site web ou une page sociale</div>
+                            </div>
+                        </div>
+
+                        <!-- Étape 4: Documents -->
+                        <div class="form-section" data-step="4">
+                            <h3 class="section-title">
+                                <i class="bi bi-file-earmark-text"></i> Documents nécessaires
+                            </h3>
+                            <p class="mb-4" style="color: var(--gray-dark);">
+                                Téléchargez les documents requis pour vérifier votre identité et votre activité.
+                                Tous les documents doivent être lisibles et valides.
+                            </p>
+                            
+                            <!-- Pièce d'identité -->
+                            <div class="document-upload" id="idUpload">
+                                <div class="upload-icon">
+                                    <i class="bi bi-card-image"></i>
+                                </div>
+                                <div class="upload-text">Pièce d'identité</div>
+                                <div class="upload-subtext">Carte d'identité, passeport ou permis de conduire (recto-verso)</div>
+                                <input type="file" id="idFile" name="idFile" accept="image/*,.pdf" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('idFile').click()">
+                                    <i class="bi bi-upload"></i> Télécharger
+                                </button>
+                            </div>
+                            <div class="uploaded-files" id="idUploaded"></div>
+                            
+                            <!-- Justificatif de domicile -->
+                            <div class="document-upload" id="addressUpload">
+                                <div class="upload-icon">
+                                    <i class="bi bi-house"></i>
+                                </div>
+                                <div class="upload-text">Justificatif de domicile</div>
+                                <div class="upload-subtext">Facture de moins de 3 mois (électricité, eau, téléphone, etc.)</div>
+                                <input type="file" id="addressFile" name="addressFile" accept="image/*,.pdf" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('addressFile').click()">
+                                    <i class="bi bi-upload"></i> Télécharger
+                                </button>
+                            </div>
+                            <div class="uploaded-files" id="addressUploaded"></div>
+                            
+                            <!-- RIB/IBAN -->
+                            <div class="document-upload" id="bankUpload">
+                                <div class="upload-icon">
+                                    <i class="bi bi-bank"></i>
+                                </div>
+                                <div class="upload-text">RIB/IBAN</div>
+                                <div class="upload-subtext">Pour recevoir vos paiements</div>
+                                <input type="file" id="bankFile" name="bankFile" accept="image/*,.pdf" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('bankFile').click()">
+                                    <i class="bi bi-upload"></i> Télécharger
+                                </button>
+                            </div>
+                            <div class="uploaded-files" id="bankUploaded"></div>
+                            
+                            <!-- Extrait K-bis (optionnel) -->
+                            <div class="document-upload" id="kbisUpload">
+                                <div class="upload-icon">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <div class="upload-text">Extrait K-bis ou équivalent (optionnel)</div>
+                                <div class="upload-subtext">Pour les entreprises uniquement</div>
+                                <input type="file" id="kbisFile" name="kbisFile" accept="image/*,.pdf" style="display: none;">
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('kbisFile').click()">
+                                    <i class="bi bi-upload"></i> Télécharger
+                                </button>
+                            </div>
+                            <div class="uploaded-files" id="kbisUploaded"></div>
+                        </div>
+
+                        <!-- Étape 5: Compte & Conditions -->
+                        <div class="form-section" data-step="5">
+                            <h3 class="section-title">
+                                <i class="bi bi-shield-lock"></i> Compte & Conditions
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label required" for="username">Nom d'utilisateur</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                    <div class="form-text">Ce sera votre identifiant de connexion</div>
+                                    <div class="error-message" id="usernameError">Veuillez choisir un nom d'utilisateur</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="password">Mot de passe</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <div class="error-message" id="passwordError">Le mot de passe doit contenir au moins 8 caractères</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label required" for="confirmPassword">Confirmer le mot de passe</label>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                    <div class="error-message" id="confirmPasswordError">Les mots de passe ne correspondent pas</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    J'accepte les <a href="conditions.html" target="_blank">Conditions Générales d'Utilisation</a> 
+                                    et la <a href="confidentialite.html" target="_blank">Politique de Confidentialité</a> d'AslazMarket
+                                </label>
+                                <div class="error-message" id="termsError">Vous devez accepter les conditions pour continuer</div>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                <label class="form-check-label" for="newsletter">
+                                    Je souhaite recevoir des conseils, actualités et offres spéciales par email
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="dataConsent" name="dataConsent" required>
+                                <label class="form-check-label" for="dataConsent">
+                                    Je consens au traitement de mes données personnelles conformément au RGPD
+                                </label>
+                                <div class="error-message" id="dataConsentError">Vous devez consentir au traitement de vos données</div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation entre les étapes -->
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="prevBtn">
+                                <i class="bi bi-arrow-left"></i> Précédent
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">
+                                Suivant <i class="bi bi-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                                <i class="bi bi-check-circle"></i> Finaliser l'inscription
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de confirmation -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-icon">
+                <i class="bi bi-check-circle"></i>
+            </div>
+            <h3 class="modal-title">Inscription réussie !</h3>
+            <p class="modal-text">
+                Félicitations ! Votre demande d'inscription en tant que vendeur a été envoyée avec succès.
+                Notre équipe va examiner votre dossier sous 24-48 heures. Vous recevrez un email de confirmation
+                une fois votre compte validé.
+            </p>
+            <div class="form-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">
+                    <i class="bi bi-house"></i> Retour à l'accueil
+                </button>
+                <button class="btn btn-primary" onclick="goToDashboard()">
+                    <i class="bi bi-dashboard"></i> Tableau de bord
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
+                            Marketplace B2B & B2C leader. Rejoignez notre communauté de vendeurs et développez votre activité en ligne.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Vendre -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Vendre</h4>
+                        <ul class="footer-links">
+                            <li><a href="devenir-vendeur.html" class="active">Devenir vendeur</a></li>
+                            <li><a href="conditions-vente.html">Conditions de vente</a></li>
+                            <li><a href="commission.html">Commission & frais</a></li>
+                            <li><a href="outils-vendeurs.html">Outils vendeurs</a></li>
+                            <li><a href="faq-vendeurs.html">FAQ vendeurs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support vendeurs</h4>
+                        <ul class="footer-links">
+                            <li><a href="aide-support.html">Centre d'aide</a></li>
+                            <li><a href="contact-vendeurs.html">Contact vendeurs</a></li>
+                            <li><a href="ressources-vendeurs.html">Ressources</a></li>
+                            <li><a href="formation-vendeurs.html">Formation</a></li>
+                            <li><a href="forum-vendeurs.html">Forum vendeurs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Catégories -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Catégories populaires</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Électronique</a></li>
+                            <li><a href="#">Mode & accessoires</a></li>
+                            <li><a href="#">Maison & jardin</a></li>
+                            <li><a href="#">Beauté & santé</a></li>
+                            <li><a href="#">Sports & loisirs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Contact vendeurs</h4>
+                        <div style="margin-top: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-envelope"></i> vendeurs@aslazmarket.com</p>
+                            <p><i class="bi bi-telephone"></i> +33 1 23 45 67 90 (Support vendeurs)</p>
+                            <p><i class="bi bi-clock"></i> Lundi-Vendredi: 9h-18h</p>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-instagram"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    <i class="bi bi-shop"></i> Plateforme vendeurs
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Variables globales
+        let currentStep = 1;
+        const totalSteps = 5;
+        let formData = {
+            step1: {},
+            step2: {},
+            step3: {},
+            step4: {},
+            step5: {}
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mettre à jour la progression
+            updateProgress();
+            
+            // Gestion des boutons de navigation
+            document.getElementById('prevBtn').addEventListener('click', prevStep);
+            document.getElementById('nextBtn').addEventListener('click', nextStep);
+            
+            // Gestion de la soumission du formulaire
+            document.getElementById('vendorRegistrationForm').addEventListener('submit', submitForm);
+            
+            // Gestion des uploads de fichiers
+            setupFileUploads();
+            
+            // Validation en temps réel
+            setupRealTimeValidation();
+            
+            console.log('Page d\'inscription vendeur chargée avec succès');
+        });
+
+        // Navigation entre les étapes
+        function nextStep() {
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            // Sauvegarder les données de l'étape actuelle
+            saveStepData(currentStep);
+            
+            // Masquer l'étape actuelle
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Passer à l'étape suivante
+            currentStep++;
+            
+            // Afficher la nouvelle étape
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.add('active');
+            document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.add('active');
+            
+            // Mettre à jour les boutons
+            updateButtons();
+            
+            // Mettre à jour la progression
+            updateProgress();
+            
+            // Scroll vers le haut du formulaire
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function prevStep() {
+            // Masquer l'étape actuelle
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Revenir à l'étape précédente
+            currentStep--;
+            
+            // Afficher la nouvelle étape
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.add('active');
+            document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.add('active');
+            
+            // Mettre à jour les boutons
+            updateButtons();
+            
+            // Mettre à jour la progression
+            updateProgress();
+            
+            // Scroll vers le haut du formulaire
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Mettre à jour l'affichage des boutons
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Bouton précédent
+            if (currentStep === 1) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'inline-flex';
+            }
+            
+            // Bouton suivant/soumettre
+            if (currentStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-flex';
+            } else {
+                nextBtn.style.display = 'inline-flex';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        // Mettre à jour la barre de progression
+        function updateProgress() {
+            const percentage = ((currentStep - 1) / totalSteps) * 100;
+            document.getElementById('progressPercentage').textContent = `${percentage}%`;
+            document.getElementById('progressFill').style.width = `${percentage}%`;
+        }
+
+        // Sauvegarder les données d'une étape
+        function saveStepData(step) {
+            const form = document.getElementById('vendorRegistrationForm');
+            const formDataObj = new FormData(form);
+            
+            // Convertir FormData en objet simple
+            const data = {};
+            for (let [key, value] of formDataObj.entries()) {
+                data[key] = value;
+            }
+            
+            formData[`step${step}`] = data;
+            
+            // Sauvegarder dans localStorage (pour persistance)
+            localStorage.setItem('vendorRegistrationData', JSON.stringify(formData));
+        }
+
+        // Validation d'une étape
+        function validateStep(step) {
+            let isValid = true;
+            
+            // Réinitialiser les erreurs
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.form-control').forEach(el => {
+                el.classList.remove('error');
+            });
+            
+            // Validation spécifique à chaque étape
+            switch(step) {
+                case 1:
+                    isValid = validateStep1();
+                    break;
+                case 2:
+                    isValid = validateStep2();
+                    break;
+                case 3:
+                    isValid = validateStep3();
+                    break;
+                case 4:
+                    isValid = validateStep4();
+                    break;
+                case 5:
+                    isValid = validateStep5();
+                    break;
+            }
+            
+            return isValid;
+        }
+
+        // Validation étape 1
+        function validateStep1() {
+            let isValid = true;
+            
+            // Prénom
+            const firstName = document.getElementById('firstName');
+            if (!firstName.value.trim()) {
+                showError('firstNameError', 'Veuillez entrer votre prénom');
+                firstName.classList.add('error');
+                isValid = false;
+            }
+            
+            // Nom
+            const lastName = document.getElementById('lastName');
+            if (!lastName.value.trim()) {
+                showError('lastNameError', 'Veuillez entrer votre nom');
+                lastName.classList.add('error');
+                isValid = false;
+            }
+            
+            // Email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                showError('emailError', 'Veuillez entrer une adresse email valide');
+                email.classList.add('error');
+                isValid = false;
+            }
+            
+            // Téléphone
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,20}$/;
+            if (!phone.value.trim() || !phoneRegex.test(phone.value)) {
+                showError('phoneError', 'Veuillez entrer un numéro de téléphone valide');
+                phone.classList.add('error');
+                isValid = false;
+            }
+            
+            // Adresse
+            const address = document.getElementById('address');
+            if (!address.value.trim()) {
+                showError('addressError', 'Veuillez entrer votre adresse');
+                address.classList.add('error');
+                isValid = false;
+            }
+            
+            // Ville
+            const city = document.getElementById('city');
+            if (!city.value.trim()) {
+                showError('cityError', 'Veuillez entrer votre ville');
+                city.classList.add('error');
+                isValid = false;
+            }
+            
+            // Code postal
+            const postalCode = document.getElementById('postalCode');
+            if (!postalCode.value.trim()) {
+                showError('postalCodeError', 'Veuillez entrer votre code postal');
+                postalCode.classList.add('error');
+                isValid = false;
+            }
+            
+            // Pays
+            const country = document.getElementById('country');
+            if (!country.value) {
+                showError('countryError', 'Veuillez sélectionner votre pays');
+                country.classList.add('error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Validation étape 2
+        function validateStep2() {
+            let isValid = true;
+            
+            // Type d'activité
+            const businessType = document.getElementById('businessType');
+            if (!businessType.value) {
+                showError('businessTypeError', 'Veuillez sélectionner votre type d\'activité');
+                businessType.classList.add('error');
+                isValid = false;
+            }
+            
+            // Expérience
+            const yearsExperience = document.getElementById('yearsExperience');
+            if (!yearsExperience.value) {
+                showError('yearsExperienceError', 'Veuillez sélectionner votre expérience');
+                yearsExperience.classList.add('error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Validation étape 3
+        function validateStep3() {
+            let isValid = true;
+            
+            // Nom boutique
+            const storeName = document.getElementById('storeName');
+            if (!storeName.value.trim()) {
+                showError('storeNameError', 'Veuillez entrer un nom pour votre boutique');
+                storeName.classList.add('error');
+                isValid = false;
+            }
+            
+            // Description boutique
+            const storeDescription = document.getElementById('storeDescription');
+            if (!storeDescription.value.trim() || storeDescription.value.trim().length < 100) {
+                showError('storeDescriptionError', 'La description doit contenir au moins 100 caractères');
+                storeDescription.classList.add('error');
+                isValid = false;
+            }
+            
+            // Catégorie principale
+            const mainCategory = document.getElementById('mainCategory');
+            if (!mainCategory.value) {
+                showError('mainCategoryError', 'Veuillez sélectionner votre catégorie principale');
+                mainCategory.classList.add('error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Validation étape 4
+        function validateStep4() {
+            let isValid = true;
+            
+            // Vérifier si au moins la pièce d'identité et le RIB sont uploadés
+            const idFile = document.getElementById('idFile').files[0];
+            const bankFile = document.getElementById('bankFile').files[0];
+            
+            if (!idFile) {
+                alert('Veuillez télécharger votre pièce d\'identité');
+                isValid = false;
+            }
+            
+            if (!bankFile) {
+                alert('Veuillez télécharger votre RIB/IBAN');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Validation étape 5
+        function validateStep5() {
+            let isValid = true;
+            
+            // Nom d'utilisateur
+            const username = document.getElementById('username');
+            if (!username.value.trim()) {
+                showError('usernameError', 'Veuillez choisir un nom d\'utilisateur');
+                username.classList.add('error');
+                isValid = false;
+            }
+            
+            // Mot de passe
+            const password = document.getElementById('password');
+            if (!password.value || password.value.length < 8) {
+                showError('passwordError', 'Le mot de passe doit contenir au moins 8 caractères');
+                password.classList.add('error');
+                isValid = false;
+            }
+            
+            // Confirmation mot de passe
+            const confirmPassword = document.getElementById('confirmPassword');
+            if (password.value !== confirmPassword.value) {
+                showError('confirmPasswordError', 'Les mots de passe ne correspondent pas');
+                confirmPassword.classList.add('error');
+                isValid = false;
+            }
+            
+            // Conditions
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+                showError('termsError', 'Vous devez accepter les conditions pour continuer');
+                isValid = false;
+            }
+            
+            // Consentement données
+            const dataConsent = document.getElementById('dataConsent');
+            if (!dataConsent.checked) {
+                showError('dataConsentError', 'Vous devez consentir au traitement de vos données');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        // Afficher une erreur
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        // Configuration des uploads de fichiers
+        function setupFileUploads() {
+            // Pièce d'identité
+            document.getElementById('idFile').addEventListener('change', function(e) {
+                handleFileUpload(e, 'idUploaded', 'Pièce d\'identité');
+            });
+            
+            // Justificatif de domicile
+            document.getElementById('addressFile').addEventListener('change', function(e) {
+                handleFileUpload(e, 'addressUploaded', 'Justificatif de domicile');
+            });
+            
+            // RIB/IBAN
+            document.getElementById('bankFile').addEventListener('change', function(e) {
+                handleFileUpload(e, 'bankUploaded', 'RIB/IBAN');
+            });
+            
+            // K-bis
+            document.getElementById('kbisFile').addEventListener('change', function(e) {
+                handleFileUpload(e, 'kbisUploaded', 'Extrait K-bis');
+            });
+        }
+
+        // Gestion de l'upload d'un fichier
+        function handleFileUpload(event, containerId, fileType) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Vérifier la taille du fichier (max 5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Le fichier est trop volumineux. Maximum 5MB.');
+                event.target.value = '';
+                return;
+            }
+            
+            // Vérifier le type de fichier
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Type de fichier non supporté. Utilisez JPG, PNG ou PDF.');
+                event.target.value = '';
+                return;
+            }
+            
+            // Afficher le fichier uploadé
+            const container = document.getElementById(containerId);
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            
+            container.innerHTML = `
+                <div class="uploaded-file">
+                    <div class="file-info">
+                        <i class="bi bi-file-earmark-text file-icon"></i>
+                        <div>
+                            <div>${file.name}</div>
+                            <div style="font-size: 11px; color: var(--gray-medium);">${fileType} • ${fileSize} MB</div>
+                        </div>
+                    </div>
+                    <i class="bi bi-x-circle file-remove" onclick="removeFile('${event.target.id}', '${containerId}')"></i>
+                </div>
+            `;
+        }
+
+        // Supprimer un fichier uploadé
+        function removeFile(inputId, containerId) {
+            document.getElementById(inputId).value = '';
+            document.getElementById(containerId).innerHTML = '';
+        }
+
+        // Configuration de la validation en temps réel
+        function setupRealTimeValidation() {
+            // Validation email en temps réel
+            document.getElementById('email').addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(this.value)) {
+                    showError('emailError', 'Veuillez entrer une adresse email valide');
+                    this.classList.add('error');
+                } else {
+                    document.getElementById('emailError').style.display = 'none';
+                    this.classList.remove('error');
+                }
+            });
+            
+            // Validation téléphone en temps réel
+            document.getElementById('phone').addEventListener('blur', function() {
+                const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,20}$/;
+                if (!phoneRegex.test(this.value)) {
+                    showError('phoneError', 'Veuillez entrer un numéro de téléphone valide');
+                    this.classList.add('error');
+                } else {
+                    document.getElementById('phoneError').style.display = 'none';
+                    this.classList.remove('error');
+                }
+            });
+            
+            // Validation mot de passe en temps réel
+            document.getElementById('password').addEventListener('input', function() {
+                if (this.value.length < 8) {
+                    showError('passwordError', 'Le mot de passe doit contenir au moins 8 caractères');
+                    this.classList.add('error');
+                } else {
+                    document.getElementById('passwordError').style.display = 'none';
+                    this.classList.remove('error');
+                }
+                
+                // Vérifier la correspondance avec la confirmation
+                const confirmPassword = document.getElementById('confirmPassword');
+                if (confirmPassword.value && this.value !== confirmPassword.value) {
+                    showError('confirmPasswordError', 'Les mots de passe ne correspondent pas');
+                    confirmPassword.classList.add('error');
+                } else if (confirmPassword.value) {
+                    document.getElementById('confirmPasswordError').style.display = 'none';
+                    confirmPassword.classList.remove('error');
+                }
+            });
+            
+            // Validation confirmation mot de passe en temps réel
+            document.getElementById('confirmPassword').addEventListener('input', function() {
+                const password = document.getElementById('password').value;
+                if (this.value !== password) {
+                    showError('confirmPasswordError', 'Les mots de passe ne correspondent pas');
+                    this.classList.add('error');
+                } else {
+                    document.getElementById('confirmPasswordError').style.display = 'none';
+                    this.classList.remove('error');
+                }
+            });
+        }
+
+        // Soumission du formulaire
+        function submitForm(e) {
+            e.preventDefault();
+            
+            // Valider la dernière étape
+            if (!validateStep(5)) {
+                return;
+            }
+            
+            // Sauvegarder les données de la dernière étape
+            saveStepData(5);
+            
+            // Simuler l'envoi au serveur
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="bi bi-clock"></i> Traitement en cours...';
+            submitBtn.disabled = true;
+            
+            // Simulation d'un délai d'envoi
+            setTimeout(() => {
+                // En production, ce serait une requête AJAX vers le serveur
+                
+                // Afficher le modal de succès
+                document.getElementById('successModal').style.display = 'flex';
+                
+                // Réinitialiser le bouton
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Sauvegarder dans localStorage pour récupération
+                localStorage.setItem('vendorRegistrationComplete', 'true');
+                localStorage.setItem('vendorEmail', document.getElementById('email').value);
+                
+            }, 2000);
+        }
+
+        // Fermer le modal
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            // Rediriger vers l'accueil
+            window.location.href = 'index.html';
+        }
+
+        // Aller au tableau de bord
+        function goToDashboard() {
+            document.getElementById('successModal').style.display = 'none';
+            // En production, rediriger vers le tableau de bord vendeur
+            alert('Redirection vers le tableau de bord vendeur...');
+            // window.location.href = 'dashboard-vendeur.html';
+        }
+
+        // Charger les données sauvegardées (si l'utilisateur revient)
+        function loadSavedData() {
+            const savedData = localStorage.getItem('vendorRegistrationData');
+            if (savedData) {
+                formData = JSON.parse(savedData);
+                
+                // Remplir les champs avec les données sauvegardées
+                Object.keys(formData).forEach(stepKey => {
+                    const stepData = formData[stepKey];
+                    Object.keys(stepData).forEach(fieldName => {
+                        const element = document.querySelector(`[name="${fieldName}"]`);
+                        if (element) {
+                            element.value = stepData[fieldName];
+                        }
+                    });
+                });
+            }
+        }
+
+        // Charger les données au chargement de la page
+        loadSavedData();
+    </script>
+</body>
+</html>

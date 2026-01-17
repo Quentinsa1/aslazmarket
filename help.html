@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide & Support - AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --info-color: #2196f3;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .page-header {
+            margin-bottom: 40px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--gray-dark);
+            max-width: 800px;
+        }
+        
+        /* ===== SUPPORT CHANNELS ===== */
+        .support-channels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .channel-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .channel-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .channel-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .channel-icon.chat {
+            color: var(--info-color);
+        }
+        
+        .channel-icon.email {
+            color: var(--accent-color);
+        }
+        
+        .channel-icon.phone {
+            color: var(--success-color);
+        }
+        
+        .channel-icon.faq {
+            color: var(--primary-color);
+        }
+        
+        .channel-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .channel-description {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .channel-info {
+            font-size: 13px;
+            color: var(--gray-medium);
+            margin-bottom: 15px;
+        }
+        
+        .channel-info strong {
+            color: var(--secondary-color);
+        }
+        
+        .btn-channel {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-channel:hover {
+            background-color: #283593;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-channel.accent {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-channel.accent:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* ===== QUICK HELP ===== */
+        .quick-help {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .help-category {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .help-category:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .category-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .category-links li {
+            margin-bottom: 8px;
+        }
+        
+        .category-links a {
+            color: var(--gray-dark);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+        }
+        
+        .category-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        /* ===== CONTACT FORM ===== */
+        .contact-form-section {
+            margin-bottom: 50px;
+        }
+        
+        .form-container {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .form-check-label {
+            font-size: 13px;
+            color: var(--gray-dark);
+        }
+        
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-submit:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            margin-bottom: 50px;
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .faq-category-btn {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 13px;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .faq-category-btn:hover:not(.active) {
+            background-color: var(--light-color);
+        }
+        
+        .faq-items-container {
+            display: none;
+        }
+        
+        .faq-items-container.active {
+            display: block;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-color);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* ===== RESOURCES SECTION ===== */
+        .resources-section {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .resource-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .resource-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .resource-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .resource-description {
+            font-size: 13px;
+            color: var(--gray-dark);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .resource-link {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* ===== STATUS INDICATOR ===== */
+        .status-indicator {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            padding: 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .status-text {
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .channel-card, .resource-card {
+                padding: 20px;
+            }
+            
+            .quick-help, .resources-section {
+                padding: 20px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .status-indicator {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="connexion.html" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="inscription.html" class="top-bar-link"><i class="bi bi-person-plus"></i> Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Centre d'Aide & Support</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="panier.html" class="action-item">
+                            <i class="bi bi-cart3 action-icon"></i>
+                            <span>Panier</span>
+                        </a>
+                        <a href="compte.html" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Compte</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="protection-acheteur.html"><i class="bi bi-shield-check"></i> Protection</a></li>
+                    <li><a href="aide-support.html" class="active"><i class="bi bi-question-circle"></i> Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active">Aide & Support</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="container-xxl">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Centre d'Aide & Support AslazMarket</h1>
+                <p class="page-subtitle">
+                    Trouvez rapidement des réponses à vos questions, contactez notre équipe de support ou consultez nos ressources.
+                    Nous sommes là pour vous aider 7 jours sur 7.
+                </p>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <div class="status-text">
+                    <strong>Tous nos services de support fonctionnent normalement.</strong> Temps de réponse moyen : moins de 2 heures.
+                </div>
+            </div>
+
+            <!-- Support Channels -->
+            <div class="support-channels">
+                <div class="channel-card">
+                    <div class="channel-icon chat">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <h3 class="channel-title">Chat en direct</h3>
+                    <p class="channel-description">
+                        Discutez en direct avec un agent de support pour une assistance immédiate.
+                    </p>
+                    <div class="channel-info">
+                        <strong>Disponible :</strong> 8h-22h (7j/7)
+                    </div>
+                    <a href="#" class="btn-channel">
+                        <i class="bi bi-chat-left-text"></i> Démarrer le chat
+                    </a>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon email">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <h3 class="channel-title">Email</h3>
+                    <p class="channel-description">
+                        Envoyez-nous un email détaillé et recevez une réponse sous 24 heures.
+                    </p>
+                    <div class="channel-info">
+                        <strong>Email :</strong> support@aslazmarket.com
+                    </div>
+                    <a href="#contact-form" class="btn-channel">
+                        <i class="bi bi-pencil"></i> Écrire un email
+                    </a>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon phone">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <h3 class="channel-title">Téléphone</h3>
+                    <p class="channel-description">
+                        Appelez notre équipe de support pour une assistance téléphonique.
+                    </p>
+                    <div class="channel-info">
+                        <strong>Téléphone :</strong> +2290161924532
+                    </div>
+                    <a href="tel:+33123456789" class="btn-channel accent">
+                        <i class="bi bi-telephone-outbound"></i> Appeler maintenant
+                    </a>
+                </div>
+
+                <div class="channel-card">
+                    <div class="channel-icon faq">
+                        <i class="bi bi-question-circle"></i>
+                    </div>
+                    <h3 class="channel-title">FAQ</h3>
+                    <p class="channel-description">
+                        Consultez nos questions fréquentes pour des réponses instantanées.
+                    </p>
+                    <div class="channel-info">
+                        <strong>Plus de 200 questions</strong> répertoriées
+                    </div>
+                    <a href="#faq" class="btn-channel">
+                        <i class="bi bi-search"></i> Voir la FAQ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Help -->
+            <section class="quick-help">
+                <h2 class="section-title">Aide rapide par catégorie</h2>
+                <p>Trouvez rapidement des réponses en fonction de votre besoin :</p>
+                
+                <div class="help-categories">
+                    <div class="help-category">
+                        <div class="category-icon">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <h4 class="category-title">Achats</h4>
+                        <ul class="category-links">
+                            <li><a href="comment-acheter.html"><i class="bi bi-chevron-right"></i> Comment acheter</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Paiements & facturation</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Livraison & suivi</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Retours & remboursements</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="help-category">
+                        <div class="category-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <h4 class="category-title">Ventes</h4>
+                        <ul class="category-links">
+                            <li><a href="devenir-vendeur.html"><i class="bi bi-chevron-right"></i> Devenir vendeur</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Gérer ma boutique</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Commandes & expédition</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Paiements vendeurs</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="help-category">
+                        <div class="category-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <h4 class="category-title">Compte</h4>
+                        <ul class="category-links">
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Créer un compte</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Sécurité du compte</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Modifier mes informations</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Supprimer mon compte</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="help-category">
+                        <div class="category-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="category-title">Sécurité</h4>
+                        <ul class="category-links">
+                            <li><a href="protection-acheteur.html"><i class="bi bi-chevron-right"></i> Protection acheteur</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Signaler un problème</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Confidentialité</a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i> Sécurité des paiements</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form -->
+            <section class="contact-form-section" id="contact-form">
+                <h2 class="section-title">Contactez-nous</h2>
+                <p>Remplissez ce formulaire et notre équipe vous répondra dans les plus brefs délais.</p>
+                
+                <div class="form-container">
+                    <form id="supportForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Nom complet *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Adresse email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="subject">Sujet *</label>
+                                    <select class="form-select" id="subject" name="subject" required>
+                                        <option value="">Sélectionnez un sujet</option>
+                                        <option value="achat">Problème avec un achat</option>
+                                        <option value="vendeur">Problème avec un vendeur</option>
+                                        <option value="compte">Problème de compte</option>
+                                        <option value="paiement">Problème de paiement</option>
+                                        <option value="livraison">Problème de livraison</option>
+                                        <option value="autre">Autre sujet</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="order">Numéro de commande (optionnel)</label>
+                                    <input type="text" class="form-control" id="order" name="order">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Description détaillée *</label>
+                            <textarea class="form-control form-textarea" id="message" name="message" required placeholder="Décrivez votre problème ou question en détail..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="attachments">Pièces jointes (optionnel)</label>
+                            <input type="file" class="form-control" id="attachments" name="attachments" multiple>
+                            <small class="text-muted">Vous pouvez joindre jusqu'à 3 fichiers (images, PDF) - 5MB maximum par fichier</small>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="urgent" name="urgent">
+                            <label class="form-check-label" for="urgent">
+                                Ce problème nécessite une réponse urgente (réponse prioritaire)
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            <i class="bi bi-send"></i> Envoyer la demande
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section" id="faq">
+                <h2 class="section-title">Questions fréquentes (FAQ)</h2>
+                <p>Parcourez nos questions les plus courantes ou recherchez une réponse spécifique.</p>
+                
+                <div class="faq-categories">
+                    <button class="faq-category-btn active" data-category="general">Général</button>
+                    <button class="faq-category-btn" data-category="achat">Achats</button>
+                    <button class="faq-category-btn" data-category="vente">Ventes</button>
+                    <button class="faq-category-btn" data-category="compte">Compte</button>
+                    <button class="faq-category-btn" data-category="paiement">Paiements</button>
+                    <button class="faq-category-btn" data-category="livraison">Livraison</button>
+                </div>
+
+                <!-- FAQ Général -->
+                <div class="faq-items-container active" id="faq-general">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Qu'est-ce qu'AslazMarket ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>AslazMarket est une marketplace B2B et B2C internationale qui connecte directement les acheteurs avec des vendeurs vérifiés. Notre plateforme permet aux vendeurs de publier leurs produits et aux acheteurs de les contacter directement via WhatsApp ou appel téléphonique pour finaliser leurs achats.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Comment fonctionne AslazMarket ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Le fonctionnement est simple :</p>
+                            <ol>
+                                <li>Les vendeurs créent un compte et publient leurs produits avec photos et descriptions</li>
+                                <li>Les acheteurs parcourent les catégories et trouvent des produits qui les intéressent</li>
+                                <li>Lorsqu'un acheteur clique sur "Acheter", il est redirigé vers le WhatsApp ou le numéro de téléphone du vendeur</li>
+                                <li>L'acheteur et le vendeur finalisent la transaction directement</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>AslazMarket est-il gratuit ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, l'utilisation d'AslazMarket est totalement gratuite pour les acheteurs. Pour les vendeurs, la création de compte et la publication des produits sont gratuites. Nous appliquons une petite commission uniquement sur les ventes effectuées via la plateforme.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Achats -->
+                <div class="faq-items-container" id="faq-achat">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Comment contacter un vendeur ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pour contacter un vendeur :</p>
+                            <ol>
+                                <li>Trouvez le produit qui vous intéresse</li>
+                                <li>Cliquez sur le bouton "Contacter le vendeur" ou "Acheter maintenant"</li>
+                                <li>Vous serez automatiquement redirigé vers WhatsApp du vendeur ou pourrez l'appeler directement</li>
+                                <li>Discutez avec le vendeur pour finaliser votre commande</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Comment savoir si un vendeur est fiable ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Plusieurs indicateurs de fiabilité :</p>
+                            <ul>
+                                <li><strong>Badge "Vérifié"</strong> : Le vendeur a fourni ses documents d'identité</li>
+                                <li><strong>Évaluations</strong> : Consultez les avis des autres acheteurs</li>
+                                <li><strong>Ancienneté</strong> : Les vendeurs présents depuis longtemps sont généralement plus fiables</li>
+                                <li><strong>Réactivité</strong> : Un vendeur qui répond rapidement est un bon signe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Ventes -->
+                <div class="faq-items-container" id="faq-vente">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Comment devenir vendeur sur AslazMarket ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pour devenir vendeur :</p>
+                            <ol>
+                                <li>Créez un compte sur AslazMarket</li>
+                                <li>Cliquez sur "Devenir vendeur" dans votre espace compte</li>
+                                <li>Complétez le formulaire d'inscription vendeur</li>
+                                <li>Fournissez les documents requis (pièce d'identité, etc.)</li>
+                                <li>Une fois votre compte validé, vous pouvez commencer à publier vos produits</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Quels sont les frais pour les vendeurs ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Les frais pour les vendeurs sont :</p>
+                            <ul>
+                                <li><strong>Inscription</strong> : Gratuite</li>
+                                <li><strong>Publication de produits</strong> : Gratuite</li>
+                                <li><strong>Commission</strong> : 5% sur chaque vente effectuée via la plateforme</li>
+                                <li><strong>Frais de transaction</strong> : Dépendent de votre méthode de paiement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plus de questions seront chargées dynamiquement -->
+            </section>
+
+            <!-- Resources Section -->
+            <section class="resources-section">
+                <h2 class="section-title">Ressources utiles</h2>
+                <p>Consultez nos guides détaillés et ressources pour en savoir plus sur AslazMarket.</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h4 class="resource-title">Guide de l'acheteur</h4>
+                        <p class="resource-description">
+                            Guide complet pour apprendre à acheter en toute sécurité sur AslazMarket, avec conseils et bonnes pratiques.
+                        </p>
+                        <a href="guide-acheteur.html" class="resource-link">
+                            Consulter le guide <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="bi bi-journal-bookmark"></i>
+                        </div>
+                        <h4 class="resource-title">Guide du vendeur</h4>
+                        <p class="resource-description">
+                            Tout ce que vous devez savoir pour vendre efficacement sur AslazMarket, de la création de boutique à la gestion des commandes.
+                        </p>
+                        <a href="guide-vendeur.html" class="resource-link">
+                            Consulter le guide <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="bi bi-shield"></i>
+                        </div>
+                        <h4 class="resource-title">Centre de sécurité</h4>
+                        <p class="resource-description">
+                            Informations complètes sur la sécurité des transactions, la protection des données et la prévention des fraudes.
+                        </p>
+                        <a href="centre-securite.html" class="resource-link">
+                            Visiter le centre <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="bi bi-megaphone"></i>
+                        </div>
+                        <h4 class="resource-title">Blog & Actualités</h4>
+                        <p class="resource-description">
+                            Découvrez les dernières actualités d'AslazMarket, conseils d'achat, témoignages et articles sur le e-commerce.
+                        </p>
+                        <a href="blog.html" class="resource-link">
+                            Voir le blog <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
+                            Marketplace B2B & B2C internationale. Support disponible 7j/7 pour vous aider dans vos achats et ventes.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="aide-support.html" class="active">Centre d'aide</a></li>
+                            <li><a href="contact.html">Contactez-nous</a></li>
+                            <li><a href="signalement.html">Signaler un problème</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="reclamation.html">Réclamation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Acheter -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Acheter</h4>
+                        <ul class="footer-links">
+                            <li><a href="comment-acheter.html">Comment acheter</a></li>
+                            <li><a href="categories.html">Catégories</a></li>
+                            <li><a href="vendeurs-verifies.html">Vendeurs vérifiés</a></li>
+                            <li><a href="protection-acheteur.html">Protection acheteur</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Vendre -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Vendre</h4>
+                        <ul class="footer-links">
+                            <li><a href="devenir-vendeur.html">Devenir vendeur</a></li>
+                            <li><a href="conditions-vente.html">Conditions de vente</a></li>
+                            <li><a href="commission.html">Commission</a></li>
+                            <li><a href="outils-vendeurs.html">Outils vendeurs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Contact rapide</h4>
+                        <div style="margin-top: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-chat-dots"></i> Chat en direct : 8h-22h (7j/7)</p>
+                            <p><i class="bi bi-envelope"></i> support@aslazmarket.com</p>
+                            <p><i class="bi bi-telephone"></i> +33 1 23 45 67 89</p>
+                            <p><i class="bi bi-clock"></i> Réponse sous 2h en moyenne</p>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-twitter"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-instagram"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    <i class="bi bi-headset"></i> Support 7j/7
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Données FAQ (extensible)
+        const faqData = {
+            'general': [
+                {
+                    question: "Qu'est-ce qu'AslazMarket ?",
+                    answer: "AslazMarket est une marketplace B2B et B2C internationale qui connecte directement les acheteurs avec des vendeurs vérifiés. Notre plateforme permet aux vendeurs de publier leurs produits et aux acheteurs de les contacter directement via WhatsApp ou appel téléphonique pour finaliser leurs achats."
+                },
+                {
+                    question: "Comment fonctionne AslazMarket ?",
+                    answer: "Le fonctionnement est simple :<ol><li>Les vendeurs créent un compte et publient leurs produits avec photos et descriptions</li><li>Les acheteurs parcourent les catégories et trouvent des produits qui les intéressent</li><li>Lorsqu'un acheteur clique sur 'Acheter', il est redirigé vers le WhatsApp ou le numéro de téléphone du vendeur</li><li>L'acheteur et le vendeur finalisent la transaction directement</li></ol>"
+                },
+                {
+                    question: "AslazMarket est-il gratuit ?",
+                    answer: "Oui, l'utilisation d'AslazMarket est totalement gratuite pour les acheteurs. Pour les vendeurs, la création de compte et la publication des produits sont gratuites. Nous appliquons une petite commission uniquement sur les ventes effectuées via la plateforme."
+                }
+            ],
+            'achat': [
+                {
+                    question: "Comment contacter un vendeur ?",
+                    answer: "Pour contacter un vendeur :<ol><li>Trouvez le produit qui vous intéresse</li><li>Cliquez sur le bouton 'Contacter le vendeur' ou 'Acheter maintenant'</li><li>Vous serez automatiquement redirigé vers WhatsApp du vendeur ou pourrez l'appeler directement</li><li>Discutez avec le vendeur pour finaliser votre commande</li></ol>"
+                },
+                {
+                    question: "Comment savoir si un vendeur est fiable ?",
+                    answer: "Plusieurs indicateurs de fiabilité :<ul><li><strong>Badge 'Vérifié'</strong> : Le vendeur a fourni ses documents d'identité</li><li><strong>Évaluations</strong> : Consultez les avis des autres acheteurs</li><li><strong>Ancienneté</strong> : Les vendeurs présents depuis longtemps sont généralement plus fiables</li><li><strong>Réactivité</strong> : Un vendeur qui répond rapidement est un bon signe</li></ul>"
+                },
+                {
+                    question: "Que faire si je ne reçois pas ma commande ?",
+                    answer: "Si vous ne recevez pas votre commande :<ol><li>Contactez le vendeur pour connaître le statut</li><li>Si pas de réponse, signalez le problème à notre support</li><li>Fournissez les preuves (captures d'écran, reçus)</li><li>Nous contacterons le vendeur et prendrons les mesures nécessaires</li></ol>"
+                }
+            ],
+            'vente': [
+                {
+                    question: "Comment devenir vendeur sur AslazMarket ?",
+                    answer: "Pour devenir vendeur :<ol><li>Créez un compte sur AslazMarket</li><li>Cliquez sur 'Devenir vendeur' dans votre espace compte</li><li>Complétez le formulaire d'inscription vendeur</li><li>Fournissez les documents requis (pièce d'identité, etc.)</li><li>Une fois votre compte validé, vous pouvez commencer à publier vos produits</li></ol>"
+                },
+                {
+                    question: "Quels sont les frais pour les vendeurs ?",
+                    answer: "Les frais pour les vendeurs sont :<ul><li><strong>Inscription</strong> : Gratuite</li><li><strong>Publication de produits</strong> : Gratuite</li><li><strong>Commission</strong> : 5% sur chaque vente effectuée via la plateforme</li><li><strong>Frais de transaction</strong> : Dépendent de votre méthode de paiement</li></ul>"
+                },
+                {
+                    question: "Combien de produits puis-je publier ?",
+                    answer: "Les vendeurs vérifiés peuvent publier jusqu'à 100 produits gratuitement. Au-delà, des forfaits sont disponibles selon vos besoins. Les vendeurs professionnels bénéficient de limites plus élevées."
+                }
+            ],
+            'compte': [
+                {
+                    question: "Comment créer un compte ?",
+                    answer: "Pour créer un compte :<ol><li>Cliquez sur 'Inscription' en haut à droite</li><li>Remplissez le formulaire avec vos informations</li><li>Confirmez votre adresse email via le lien envoyé</li><li>Complétez votre profil si nécessaire</li><li>Votre compte est maintenant actif !</li></ol>"
+                },
+                {
+                    question: "Comment réinitialiser mon mot de passe ?",
+                    answer: "Pour réinitialiser votre mot de passe :<ol><li>Cliquez sur 'Connexion' puis sur 'Mot de passe oublié'</li><li>Entrez votre adresse email</li><li>Cliquez sur le lien reçu par email</li><li>Créez un nouveau mot de passe sécurisé</li></ol>"
+                },
+                {
+                    question: "Comment supprimer mon compte ?",
+                    answer: "Pour supprimer votre compte :<ol><li>Connectez-vous à votre compte</li><li>Allez dans 'Paramètres du compte'</li><li>Cliquez sur 'Supprimer mon compte'</li><li>Confirmez votre choix</li><li>Note : Cette action est irréversible</li></ol>"
+                }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des catégories FAQ
+            const faqCategoryBtns = document.querySelectorAll('.faq-category-btn');
+            const faqContainers = document.querySelectorAll('.faq-items-container');
+            
+            faqCategoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons et conteneurs
+                    faqCategoryBtns.forEach(b => b.classList.remove('active'));
+                    faqContainers.forEach(c => c.classList.remove('active'));
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    btn.classList.add('active');
+                    
+                    // Afficher le conteneur correspondant
+                    const category = btn.dataset.category;
+                    const container = document.getElementById(`faq-${category}`);
+                    if (container) {
+                        container.classList.add('active');
+                    }
+                    
+                    // Si le conteneur est vide, charger les données
+                    if (container && container.children.length === 0) {
+                        loadFAQCategory(category, container);
+                    }
+                });
+            });
+            
+            // Fonction pour charger les données FAQ
+            function loadFAQCategory(category, container) {
+                const questions = faqData[category] || [];
+                
+                if (questions.length === 0) {
+                    container.innerHTML = '<p style="padding: 20px; text-align: center; color: var(--gray-medium);">Aucune question disponible pour cette catégorie pour le moment.</p>';
+                    return;
+                }
+                
+                let html = '';
+                questions.forEach((item, index) => {
+                    html += `
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>${item.question}</span>
+                                <i class="bi bi-plus faq-toggle"></i>
+                            </div>
+                            <div class="faq-answer">
+                                ${item.answer}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+                // Réinitialiser les événements pour les nouvelles questions
+                initializeFAQEvents();
+            }
+            
+            // Gestion de l'ouverture/fermeture des questions FAQ
+            function initializeFAQEvents() {
+                const faqItems = document.querySelectorAll('.faq-item');
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const toggle = item.querySelector('.faq-toggle');
+                    
+                    question.addEventListener('click', () => {
+                        // Fermer toutes les autres réponses
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                otherItem.querySelector('.faq-answer').classList.remove('active');
+                            }
+                        });
+                        
+                        // Ouvrir/fermer cette réponse
+                        item.classList.toggle('active');
+                        answer.classList.toggle('active');
+                    });
+                });
+            }
+            
+            // Initialiser les événements FAQ pour les premières questions
+            initializeFAQEvents();
+            
+            // Gestion du formulaire de contact
+            const supportForm = document.getElementById('supportForm');
+            if (supportForm) {
+                supportForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validation simple
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        alert('Veuillez remplir tous les champs obligatoires (*)');
+                        return;
+                    }
+                    
+                    // Simulation d'envoi
+                    const submitBtn = supportForm.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="bi bi-clock"></i> Envoi en cours...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        // En production, ce serait une requête AJAX vers le serveur
+                        alert('Votre demande a été envoyée avec succès ! Nous vous répondrons dans les plus brefs délais.');
+                        supportForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Scroll vers le haut du formulaire
+                        document.querySelector('.contact-form-section').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 1500);
+                });
+            }
+            
+            // Animation des cartes au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes
+            document.querySelectorAll('.channel-card, .help-category, .resource-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+            
+            console.log('Page "Aide & Support" chargée avec succès');
+        });
+    </script>
+</body>
+</html>

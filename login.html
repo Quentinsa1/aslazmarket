@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --info-color: #2196f3;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+        }
+        
+        /* ===== LOGIN CONTAINER ===== */
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .login-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        
+        .login-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .login-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .login-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .login-body {
+            padding: 40px;
+        }
+        
+        /* ===== USER TYPE SELECTOR ===== */
+        .user-type-selector {
+            display: flex;
+            margin-bottom: 30px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .user-type-btn {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .user-type-btn:hover {
+            background-color: var(--light-color);
+        }
+        
+        .user-type-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .user-type-icon {
+            font-size: 24px;
+        }
+        
+        /* ===== FORM STYLES ===== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: var(--accent-color);
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-medium);
+            cursor: pointer;
+        }
+        
+        .error-message {
+            color: var(--accent-color);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* ===== FORM OPTIONS ===== */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .form-check-label {
+            font-size: 13px;
+            color: var(--gray-dark);
+            cursor: pointer;
+        }
+        
+        .forgot-password {
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 14px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d32f2f;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--gray-light);
+        }
+        
+        /* ===== SEPARATOR ===== */
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: var(--gray-medium);
+        }
+        
+        .separator::before, .separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--gray-light);
+        }
+        
+        .separator-text {
+            padding: 0 15px;
+            font-size: 13px;
+        }
+        
+        /* ===== SOCIAL LOGIN ===== */
+        .social-login {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-btn {
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-light);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .social-btn:hover {
+            background-color: var(--light-color);
+        }
+        
+        .social-icon {
+            font-size: 18px;
+        }
+        
+        .google {
+            color: #DB4437;
+        }
+        
+        .facebook {
+            color: #4267B2;
+        }
+        
+        /* ===== REGISTER LINK ===== */
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .register-link a {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        /* ===== SECURITY INFO ===== */
+        .security-info {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--secondary-color);
+        }
+        
+        .security-info i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+        
+        /* ===== ADMIN LOGIN NOTE ===== */
+        .admin-note {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--secondary-color);
+            display: none;
+        }
+        
+        .admin-note i {
+            color: var(--warning-color);
+            margin-right: 10px;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .login-body {
+                padding: 30px 20px;
+            }
+            
+            .user-type-selector {
+                flex-direction: column;
+            }
+            
+            .social-login {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .login-header {
+                padding: 20px;
+            }
+            
+            .login-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="aide-support.html" class="top-bar-link"><i class="bi bi-question-circle"></i> Aide</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Connexion à votre compte</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="inscription-acheteur.html" class="action-item">
+                            <i class="bi bi-person-plus action-icon"></i>
+                            <span>S'inscrire</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="protection-acheteur.html"><i class="bi bi-shield-check"></i> Protection</a></li>
+                    <li><a href="aide-support.html"><i class="bi bi-question-circle"></i> Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active">Connexion</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="container-xxl">
+            <div class="login-container">
+                <div class="login-card">
+                    <!-- En-tête de connexion -->
+                    <div class="login-header">
+                        <h1 class="login-title">Connexion</h1>
+                        <p class="login-subtitle">Accédez à votre espace personnel</p>
+                    </div>
+                    
+                    <!-- Corps de connexion -->
+                    <div class="login-body">
+                        <!-- Sélecteur de type d'utilisateur -->
+                        <div class="user-type-selector">
+                            <button type="button" class="user-type-btn active" data-user-type="acheteur">
+                                <i class="bi bi-person user-type-icon"></i>
+                                <span>Acheteur</span>
+                            </button>
+                            <button type="button" class="user-type-btn" data-user-type="vendeur">
+                                <i class="bi bi-shop user-type-icon"></i>
+                                <span>Vendeur</span>
+                            </button>
+                            <button type="button" class="user-type-btn" data-user-type="admin">
+                                <i class="bi bi-gear user-type-icon"></i>
+                                <span>Administrateur</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Formulaire de connexion -->
+                        <form id="loginForm">
+                            <!-- Champ email -->
+                            <div class="form-group">
+                                <label class="form-label" for="email">Adresse email</label>
+                                <input type="email" class="form-control" id="email" name="email" required placeholder="votre@email.com">
+                                <div class="error-message" id="emailError">Veuillez entrer une adresse email valide</div>
+                            </div>
+                            
+                            <!-- Champ mot de passe -->
+                            <div class="form-group">
+                                <label class="form-label" for="password">Mot de passe</label>
+                                <div class="input-with-icon">
+                                    <input type="password" class="form-control" id="password" name="password" required placeholder="Votre mot de passe">
+                                    <i class="bi bi-eye input-icon" id="togglePassword"></i>
+                                </div>
+                                <div class="error-message" id="passwordError">Veuillez entrer votre mot de passe</div>
+                            </div>
+                            
+                            <!-- Options du formulaire -->
+                            <div class="form-options">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                                </div>
+                                <a href="mot-de-passe-oublie.html" class="forgot-password">Mot de passe oublié ?</a>
+                            </div>
+                            
+                            <!-- Bouton de connexion -->
+                            <button type="submit" class="btn btn-primary" id="loginBtn">
+                                <i class="bi bi-box-arrow-in-right"></i> Se connecter
+                            </button>
+                        </form>
+                        
+                        <!-- Séparateur -->
+                        <div class="separator">
+                            <span class="separator-text">Ou connectez-vous avec</span>
+                        </div>
+                        
+                        <!-- Connexion sociale -->
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <i class="bi bi-google social-icon google"></i>
+                                Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="bi bi-facebook social-icon facebook"></i>
+                                Facebook
+                            </button>
+                        </div>
+                        
+                        <!-- Lien d'inscription (dynamique selon le type d'utilisateur) -->
+                        <div class="register-link" id="registerSection">
+                            <p>Vous n'avez pas de compte ? <a href="inscription-acheteur.html" id="registerLink">Inscrivez-vous en tant qu'acheteur</a></p>
+                        </div>
+                        
+                        <!-- Note de sécurité -->
+                        <div class="security-info">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Votre connexion est sécurisée. Nous utilisons un chiffrement SSL pour protéger vos données.</span>
+                        </div>
+                        
+                        <!-- Note pour les administrateurs -->
+                        <div class="admin-note" id="adminNote">
+                            <i class="bi bi-exclamation-triangle"></i>
+                            <span>Accès réservé au personnel autorisé d'AslazMarket. Toute connexion non autorisée est strictement interdite.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
+                            Marketplace B2B & B2C sécurisée. Connectez-vous pour accéder à votre espace personnel.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Connexion -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Connexion</h4>
+                        <ul class="footer-links">
+                            <li><a href="connexion.html" class="active">Connexion acheteur</a></li>
+                            <li><a href="connexion.html?type=vendeur">Connexion vendeur</a></li>
+                            <li><a href="mot-de-passe-oublie.html">Mot de passe oublié</a></li>
+                            <li><a href="aide-support.html">Aide connexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Inscription -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Inscription</h4>
+                        <ul class="footer-links">
+                            <li><a href="inscription-acheteur.html">Inscription acheteur</a></li>
+                            <li><a href="devenir-vendeur.html">Devenir vendeur</a></li>
+                            <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                            <li><a href="confidentialite.html">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="aide-support.html">Centre d'aide</a></li>
+                            <li><a href="contact.html">Contactez-nous</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="signalement.html">Signaler un problème</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sécurité -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Sécurité & Confidentialité</h4>
+                        <div style="margin-top: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-shield-check"></i> Connexion sécurisée SSL</p>
+                            <p><i class="bi bi-lock"></i> Données cryptées</p>
+                            <p><i class="bi bi-person-check"></i> Vérification en 2 étapes</p>
+                            <p><i class="bi bi-eye-slash"></i> Vos données sont privées</p>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-twitter"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    <i class="bi bi-shield-lock"></i> Connexion sécurisée
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Variables globales
+        let currentUserType = 'acheteur';
+        let redirectUrls = {
+            acheteur: 'compte-acheteur.html',
+            vendeur: 'dashboard-vendeur.html',
+            admin: 'admin-dashboard.html'
+        };
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si un type est spécifié dans l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const typeFromUrl = urlParams.get('type');
+            
+            if (typeFromUrl && ['acheteur', 'vendeur', 'admin'].includes(typeFromUrl)) {
+                setUserType(typeFromUrl);
+            }
+            
+            // Configuration des boutons de type d'utilisateur
+            setupUserTypeButtons();
+            
+            // Configuration du formulaire
+            setupLoginForm();
+            
+            // Configuration du toggle du mot de passe
+            setupPasswordToggle();
+            
+            console.log('Page de connexion chargée avec succès');
+        });
+        
+        // Configuration des boutons de type d'utilisateur
+        function setupUserTypeButtons() {
+            const userTypeButtons = document.querySelectorAll('.user-type-btn');
+            
+            userTypeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const userType = this.dataset.userType;
+                    setUserType(userType);
+                });
+            });
+        }
+        
+        // Changer le type d'utilisateur
+        function setUserType(userType) {
+            currentUserType = userType;
+            
+            // Mettre à jour les boutons actifs
+            document.querySelectorAll('.user-type-btn').forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.userType === userType) {
+                    button.classList.add('active');
+                }
+            });
+            
+            // Mettre à jour l'en-tête
+            updateLoginHeader(userType);
+            
+            // Mettre à jour le lien d'inscription
+            updateRegisterLink(userType);
+            
+            // Afficher/masquer la note admin
+            updateAdminNote(userType);
+        }
+        
+        // Mettre à jour l'en-tête de connexion
+        function updateLoginHeader(userType) {
+            const loginTitle = document.querySelector('.login-title');
+            const loginSubtitle = document.querySelector('.login-subtitle');
+            
+            switch(userType) {
+                case 'acheteur':
+                    loginTitle.textContent = 'Connexion Acheteur';
+                    loginSubtitle.textContent = 'Accédez à votre compte acheteur';
+                    break;
+                case 'vendeur':
+                    loginTitle.textContent = 'Connexion Vendeur';
+                    loginSubtitle.textContent = 'Accédez à votre espace vendeur';
+                    break;
+                case 'admin':
+                    loginTitle.textContent = 'Connexion Administrateur';
+                    loginSubtitle.textContent = 'Accédez au panneau d\'administration';
+                    break;
+            }
+        }
+        
+        // Mettre à jour le lien d'inscription
+        function updateRegisterLink(userType) {
+            const registerSection = document.getElementById('registerSection');
+            const registerLink = document.getElementById('registerLink');
+            
+            switch(userType) {
+                case 'acheteur':
+                    registerSection.style.display = 'block';
+                    registerLink.textContent = 'Inscrivez-vous en tant qu\'acheteur';
+                    registerLink.href = 'inscription-acheteur.html';
+                    break;
+                case 'vendeur':
+                    registerSection.style.display = 'block';
+                    registerLink.textContent = 'Devenir vendeur';
+                    registerLink.href = 'devenir-vendeur.html';
+                    break;
+                case 'admin':
+                    registerSection.style.display = 'none';
+                    break;
+            }
+        }
+        
+        // Mettre à jour la note admin
+        function updateAdminNote(userType) {
+            const adminNote = document.getElementById('adminNote');
+            
+            if (userType === 'admin') {
+                adminNote.style.display = 'block';
+            } else {
+                adminNote.style.display = 'none';
+            }
+        }
+        
+        // Configuration du formulaire de connexion
+        function setupLoginForm() {
+            const loginForm = document.getElementById('loginForm');
+            const loginBtn = document.getElementById('loginBtn');
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Valider le formulaire
+                if (validateForm()) {
+                    // Simuler la connexion
+                    simulateLogin();
+                }
+            });
+            
+            // Validation en temps réel
+            setupRealTimeValidation();
+        }
+        
+        // Configuration de la validation en temps réel
+        function setupRealTimeValidation() {
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            emailInput.addEventListener('blur', function() {
+                validateEmail(this.value);
+            });
+            
+            passwordInput.addEventListener('blur', function() {
+                validatePassword(this.value);
+            });
+        }
+        
+        // Valider le formulaire
+        function validateForm() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            let isValid = true;
+            
+            // Réinitialiser les erreurs
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.form-control').forEach(el => {
+                el.classList.remove('error');
+            });
+            
+            // Valider l'email
+            if (!validateEmail(email)) {
+                isValid = false;
+            }
+            
+            // Valider le mot de passe
+            if (!validatePassword(password)) {
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // Valider l'email
+        function validateEmail(email) {
+            const emailError = document.getElementById('emailError');
+            const emailInput = document.getElementById('email');
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                emailError.textContent = 'Veuillez entrer votre adresse email';
+                emailError.style.display = 'block';
+                emailInput.classList.add('error');
+                return false;
+            }
+            
+            if (!emailRegex.test(email)) {
+                emailError.textContent = 'Veuillez entrer une adresse email valide';
+                emailError.style.display = 'block';
+                emailInput.classList.add('error');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Valider le mot de passe
+        function validatePassword(password) {
+            const passwordError = document.getElementById('passwordError');
+            const passwordInput = document.getElementById('password');
+            
+            if (!password) {
+                passwordError.textContent = 'Veuillez entrer votre mot de passe';
+                passwordError.style.display = 'block';
+                passwordInput.classList.add('error');
+                return false;
+            }
+            
+            if (password.length < 6) {
+                passwordError.textContent = 'Le mot de passe doit contenir au moins 6 caractères';
+                passwordError.style.display = 'block';
+                passwordInput.classList.add('error');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Configuration du toggle du mot de passe
+        function setupPasswordToggle() {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            
+            togglePassword.addEventListener('click', function() {
+                // Changer le type de l'input
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Changer l'icône
+                this.classList.toggle('bi-eye');
+                this.classList.toggle('bi-eye-slash');
+            });
+        }
+        
+        // Simuler la connexion
+        function simulateLogin() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            const loginBtn = document.getElementById('loginBtn');
+            const originalText = loginBtn.innerHTML;
+            
+            // Désactiver le bouton pendant la connexion
+            loginBtn.innerHTML = '<i class="bi bi-clock"></i> Connexion en cours...';
+            loginBtn.disabled = true;
+            
+            // Simulation d'un délai de connexion
+            setTimeout(() => {
+                // En production, ce serait une requête AJAX vers le serveur
+                
+                // Simuler différentes réponses selon le type d'utilisateur
+                let loginSuccessful = true;
+                let errorMessage = '';
+                
+                // Tests de simulation
+                if (email === 'admin@aslazmarket.com' && password === 'admin123') {
+                    // Connexion admin réussie
+                    loginSuccessful = true;
+                } else if (email === 'vendeur@example.com' && password === 'vendeur123') {
+                    // Connexion vendeur réussie
+                    loginSuccessful = true;
+                } else if (email === 'acheteur@example.com' && password === 'acheteur123') {
+                    // Connexion acheteur réussie
+                    loginSuccessful = true;
+                } else if (!email || !password) {
+                    loginSuccessful = false;
+                    errorMessage = 'Veuillez remplir tous les champs';
+                } else {
+                    loginSuccessful = false;
+                    errorMessage = 'Email ou mot de passe incorrect';
+                }
+                
+                if (loginSuccessful) {
+                    // Connexion réussie
+                    showSuccessMessage();
+                    
+                    // Sauvegarder les informations de connexion si "Se souvenir de moi" est coché
+                    if (rememberMe) {
+                        localStorage.setItem('rememberedEmail', email);
+                        localStorage.setItem('rememberedUserType', currentUserType);
+                    } else {
+                        localStorage.removeItem('rememberedEmail');
+                        localStorage.removeItem('rememberedUserType');
+                    }
+                    
+                    // Sauvegarder la session actuelle
+                    sessionStorage.setItem('loggedIn', 'true');
+                    sessionStorage.setItem('userType', currentUserType);
+                    sessionStorage.setItem('userEmail', email);
+                    
+                    // Rediriger après un délai
+                    setTimeout(() => {
+                        window.location.href = redirectUrls[currentUserType];
+                    }, 1500);
+                    
+                } else {
+                    // Échec de connexion
+                    showErrorMessage(errorMessage);
+                    
+                    // Réactiver le bouton
+                    loginBtn.innerHTML = originalText;
+                    loginBtn.disabled = false;
+                }
+                
+            }, 1500);
+        }
+        
+        // Afficher un message de succès
+        function showSuccessMessage() {
+            const loginForm = document.getElementById('loginForm');
+            
+            // Créer un message de succès
+            const successMessage = document.createElement('div');
+            successMessage.className = 'security-info';
+            successMessage.style.backgroundColor = '#e8f5e9';
+            successMessage.style.borderLeftColor = 'var(--success-color)';
+            successMessage.innerHTML = `
+                <i class="bi bi-check-circle" style="color: var(--success-color);"></i>
+                <span>Connexion réussie ! Redirection en cours...</span>
+            `;
+            
+            // Insérer le message avant le formulaire
+            loginForm.parentNode.insertBefore(successMessage, loginForm);
+            
+            // Masquer le formulaire
+            loginForm.style.display = 'none';
+        }
+        
+        // Afficher un message d'erreur
+        function showErrorMessage(message) {
+            // Créer un message d'erreur
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'security-info';
+            errorDiv.style.backgroundColor = '#ffebee';
+            errorDiv.style.borderLeftColor = 'var(--accent-color)';
+            errorDiv.innerHTML = `
+                <i class="bi bi-exclamation-triangle" style="color: var(--accent-color);"></i>
+                <span>${message}</span>
+            `;
+            
+            // Insérer le message avant le formulaire
+            const loginForm = document.getElementById('loginForm');
+            loginForm.parentNode.insertBefore(errorDiv, loginForm);
+            
+            // Supprimer le message après 5 secondes
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        }
+        
+        // Charger les informations sauvegardées
+        function loadSavedCredentials() {
+            const rememberedEmail = localStorage.getItem('rememberedEmail');
+            const rememberedUserType = localStorage.getItem('rememberedUserType');
+            
+            if (rememberedEmail) {
+                document.getElementById('email').value = rememberedEmail;
+                document.getElementById('rememberMe').checked = true;
+                
+                if (rememberedUserType) {
+                    setUserType(rememberedUserType);
+                }
+            }
+        }
+        
+        // Charger les informations au chargement de la page
+        loadSavedCredentials();
+    </script>
+</body>
+</html>

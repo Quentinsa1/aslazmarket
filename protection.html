@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protection de l'acheteur - AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --info-color: #2196f3;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .page-header {
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--gray-dark);
+            max-width: 800px;
+        }
+        
+        /* ===== PROTECTION BADGES ===== */
+        .protection-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .badge-card {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .badge-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .badge-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .badge-icon.verified {
+            color: var(--success-color);
+        }
+        
+        .badge-icon.secure {
+            color: var(--info-color);
+        }
+        
+        .badge-icon.support {
+            color: var(--accent-color);
+        }
+        
+        .badge-icon.dispute {
+            color: var(--warning-color);
+        }
+        
+        .badge-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .badge-description {
+            font-size: 13px;
+            color: var(--gray-dark);
+            line-height: 1.5;
+        }
+        
+        /* ===== PROTECTION STEPS ===== */
+        .protection-steps {
+            margin: 50px 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
+        .steps-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .steps-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 2px;
+            background-color: var(--gray-light);
+        }
+        
+        .timeline-step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            z-index: 1;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+        
+        .step-content {
+            flex: 1;
+            background-color: var(--light-color);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        /* ===== GUARANTEE BOXES ===== */
+        .guarantee-section {
+            margin: 50px 0;
+        }
+        
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .guarantee-box {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .guarantee-box:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .guarantee-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .guarantee-icon {
+            font-size: 32px;
+            margin-right: 15px;
+            color: var(--success-color);
+        }
+        
+        .guarantee-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .guarantee-content {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        /* ===== REPORTING SECTION ===== */
+        .reporting-section {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .reporting-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .reporting-step {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .reporting-step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .reporting-step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .btn-report {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .btn-report:hover {
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-color);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* ===== ALERT BOXES ===== */
+        .alert-box {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+        
+        .alert-success {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            color: #2e7d32;
+        }
+        
+        .alert-warning {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            color: #ef6c00;
+        }
+        
+        .alert-info {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--info-color);
+            color: #1565c0;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .steps-timeline::before {
+                left: 25px;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-right: 20px;
+            }
+            
+            .reporting-section {
+                padding: 20px;
+            }
+            
+            .badge-card, .guarantee-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="connexion.html" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="inscription.html" class="top-bar-link"><i class="bi bi-person-plus"></i> Inscription</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Protection de l'acheteur</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="compte.html" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Compte</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="protection-acheteur.html" class="active"><i class="bi bi-shield-check"></i> Protection</a></li>
+                    <li><a href="support.html"><i class="bi bi-question-circle"></i> Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active">Protection de l'acheteur</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="container-xxl">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Protection de l'acheteur AslazMarket</h1>
+                <p class="page-subtitle">
+                    Votre sécurité est notre priorité. Découvrez toutes les mesures que nous mettons en place pour protéger vos achats
+                    et garantir des transactions sécurisées avec nos vendeurs vérifiés.
+                </p>
+            </div>
+
+            <!-- Protection Badges -->
+            <div class="protection-badges">
+                <div class="badge-card">
+                    <div class="badge-icon verified">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+                    <h3 class="badge-title">Vendeurs Vérifiés</h3>
+                    <p class="badge-description">
+                        Tous nos vendeurs passent par un processus de vérification d'identité avant de pouvoir publier des produits.
+                    </p>
+                </div>
+
+                <div class="badge-card">
+                    <div class="badge-icon secure">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h3 class="badge-title">Transactions Sécurisées</h3>
+                    <p class="badge-description">
+                        Nous encourageons les méthodes de paiement sécurisées et conservons les traces de toutes les transactions.
+                    </p>
+                </div>
+
+                <div class="badge-card">
+                    <div class="badge-icon support">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h3 class="badge-title">Support 7j/7</h3>
+                    <p class="badge-description">
+                        Notre équipe de support est disponible pour vous aider en cas de problème avec une commande.
+                    </p>
+                </div>
+
+                <div class="badge-card">
+                    <div class="badge-icon dispute">
+                        <i class="bi bi-currency-exchange"></i>
+                    </div>
+                    <h3 class="badge-title">Résolution des Litiges</h3>
+                    <p class="badge-description">
+                        En cas de conflit avec un vendeur, notre équipe intervient pour trouver une solution équitable.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Protection Steps -->
+            <section class="protection-steps">
+                <h2 class="section-title">Comment nous vous protégeons</h2>
+                
+                <div class="steps-timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Vérification rigoureuse des vendeurs</h3>
+                            <p class="step-description">
+                                Avant de pouvoir vendre sur AslazMarket, chaque vendeur doit :
+                                <ul>
+                                    <li>Fournir une pièce d'identité valide</li>
+                                    <li>Confirmer son numéro de téléphone et adresse email</li>
+                                    <li>Accepter nos conditions de vente et charte éthique</li>
+                                    <li>Pour les vendeurs professionnels : fournir un extrait KBIS ou équivalent</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Système d'évaluation et de réputation</h3>
+                            <p class="step-description">
+                                Après chaque transaction, les acheteurs peuvent évaluer :
+                                <ul>
+                                    <li>La qualité du produit reçu</li>
+                                    <li>La précision de la description</li>
+                                    <li>Le professionnalisme du vendeur</li>
+                                    <li>Les délais de livraison</li>
+                                    <li>La communication</li>
+                                </ul>
+                                Les vendeurs avec des évaluations négatives répétées sont suspendus de la plateforme.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Traçabilité des transactions</h3>
+                            <p class="step-description">
+                                Nous conservons un historique de :
+                                <ul>
+                                    <li>Toutes les conversations entre acheteurs et vendeurs</li>
+                                    <li>Les annonces publiées (même après suppression)</li>
+                                    <li>Les coordonnées des vendeurs</li>
+                                    <li>Les signalements et réclamations</li>
+                                </ul>
+                                Ces données nous permettent d'intervenir efficacement en cas de litige.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Intervention en cas de problème</h3>
+                            <p class="step-description">
+                                Si vous rencontrez un problème avec une commande :
+                                <ol>
+                                    <li>Contactez d'abord le vendeur pour tenter une résolution amiable</li>
+                                    <li>Si aucune solution n'est trouvée, signalez le problème à notre équipe</li>
+                                    <li>Nous contactons le vendeur et examinons les preuves fournies</li>
+                                    <li>Nous pouvons suspendre le vendeur et vous aider à porter plainte si nécessaire</li>
+                                </ol>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guarantee Section -->
+            <section class="guarantee-section">
+                <h2 class="section-title">Nos garanties pour les acheteurs</h2>
+                
+                <div class="guarantee-grid">
+                    <div class="guarantee-box">
+                        <div class="guarantee-header">
+                            <div class="guarantee-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <h3 class="guarantee-title">Garantie de description</h3>
+                        </div>
+                        <div class="guarantee-content">
+                            <p>Si le produit reçu ne correspond pas à sa description, vous pouvez demander un remboursement ou un échange. Le vendeur doit fournir des photos et descriptions précises de ses produits.</p>
+                        </div>
+                    </div>
+
+                    <div class="guarantee-box">
+                        <div class="guarantee-header">
+                            <div class="guarantee-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <h3 class="guarantee-title">Contact vérifié</h3>
+                        </div>
+                        <div class="guarantee-content">
+                            <p>Tous les numéros de téléphone et adresses des vendeurs sont vérifiés. En cas de fraude avérée, nous fournissons ces informations aux autorités compétentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="guarantee-box">
+                        <div class="guarantee-header">
+                            <div class="guarantee-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <h3 class="guarantee-title">Historique des vendeurs</h3>
+                        </div>
+                        <div class="guarantee-content">
+                            <p>Consultez l'historique complet des évaluations d'un vendeur avant d'acheter. Les nouveaux vendeurs sont identifiés comme tels.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alert Boxes -->
+            <div class="alert-box alert-success">
+                <h4><i class="bi bi-check-circle"></i> Conseils pour acheter en sécurité</h4>
+                <ul>
+                    <li><strong>Vérifiez les évaluations</strong> du vendeur avant d'acheter</li>
+                    <li><strong>Demandez des photos supplémentaires</strong> si nécessaire</li>
+                    <li><strong>Conservez toutes les conversations</strong> avec le vendeur</li>
+                    <li><strong>Utilisez des méthodes de paiement traçables</strong> (virement, mobile money avec reçu)</li>
+                    <li><strong>Méfiez-vous des prix trop attractifs</strong> par rapport au marché</li>
+                </ul>
+            </div>
+
+            <!-- Reporting Section -->
+            <section class="reporting-section">
+                <h2 class="section-title">Signaler un problème</h2>
+                <p>Si vous rencontrez un vendeur malhonnête ou si vous avez été victime d'une fraude, suivez ces étapes :</p>
+                
+                <div class="reporting-steps">
+                    <div class="reporting-step">
+                        <div class="reporting-step-number">1</div>
+                        <h4 class="reporting-step-title">Rassemblez les preuves</h4>
+                        <p>Sauvegardez les conversations, photos du produit, reçus de paiement, et toute autre preuve pertinente.</p>
+                    </div>
+
+                    <div class="reporting-step">
+                        <div class="reporting-step-number">2</div>
+                        <h4 class="reporting-step-title">Contactez notre support</h4>
+                        <p>Utilisez notre formulaire de signalement ou contactez-nous directement par email ou téléphone.</p>
+                    </div>
+
+                    <div class="reporting-step">
+                        <div class="reporting-step-number">3</div>
+                        <h4 class="reporting-step-title">Notre intervention</h4>
+                        <p>Nous examinerons le cas sous 48h, contacterons le vendeur et prendrons les mesures appropriées.</p>
+                    </div>
+
+                    <div class="reporting-step">
+                        <div class="reporting-step-number">4</div>
+                        <h4 class="reporting-step-title">Résolution</h4>
+                        <p>En cas de fraude avérée, nous suspendons le vendeur et vous aidons dans vos démarches.</p>
+                    </div>
+                </div>
+                
+                <a href="signalement.html" class="btn-report">
+                    <i class="bi bi-flag"></i> Signaler un problème maintenant
+                </a>
+            </section>
+
+            <div class="alert-box alert-warning">
+                <h4><i class="bi bi-exclamation-triangle"></i> Attention aux arnaques courantes</h4>
+                <ul>
+                    <li><strong>Paiement par carte cadeau</strong> : Ne payez jamais avec des cartes cadeaux ou cryptomonnaies non traçables</li>
+                    <li><strong>Virements internationaux</strong> : Méfiez-vous des vendeurs demandant des virements vers l'étranger</li>
+                    <li><strong>Hors plateforme</strong> : Restez sur AslazMarket pour toutes les communications</li>
+                    <li><strong>Frais cachés</strong> : Demandez un détail complet des coûts avant de payer</li>
+                </ul>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">Questions fréquentes sur la protection</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Que faire si je ne reçois pas ma commande ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si vous ne recevez pas votre commande dans les délais convenus :</p>
+                        <ol>
+                            <li>Contactez le vendeur pour connaître le statut de l'envoi</li>
+                            <li>Demandez un numéro de suivi si disponible</li>
+                            <li>Si le vendeur ne répond pas ou ne fournit pas d'information, signalez le problème à notre support</li>
+                            <li>Nous contacterons le vendeur et, si nécessaire, suspendrons son compte</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment fonctionne le système d'évaluation ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Après réception de votre commande, vous pouvez évaluer :</p>
+                        <ul>
+                            <li><strong>Le produit</strong> (qualité, conformité à la description)</li>
+                            <li><strong>Le vendeur</strong> (communication, professionnalisme)</li>
+                            <li><strong>La livraison</strong> (délais, condition du colis)</li>
+                        </ul>
+                        <p>Ces évaluations sont publiques et aident les autres acheteurs. Les vendeurs avec une moyenne inférieure à 3/5 sont placés sous surveillance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>AslazMarket rembourse-t-elle les achats ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>AslazMarket est une plateforme de mise en relation. Nous ne traitons pas directement les paiements et ne pouvons donc pas procéder à des remboursements directs. Cependant :</p>
+                        <ul>
+                            <li>Nous pouvons contraindre un vendeur à rembourser en cas de fraude avérée</li>
+                            <li>Nous suspendons immédiatement les vendeurs qui refusent de rembourser pour non-conformité</li>
+                            <li>Nous vous aidons à porter plainte si nécessaire</li>
+                            <li>Nous vous conseillons sur les recours possibles selon votre méthode de paiement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment savoir si un vendeur est fiable ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Plusieurs indicateurs de fiabilité :</p>
+                        <ul>
+                            <li><strong>Badge "Vérifié"</strong> : Le vendeur a fourni ses documents d'identité</li>
+                            <li><strong>Nombre d'évaluations</strong> : Plus un vendeur a d'évaluations, plus il est fiable</li>
+                            <li><strong>Note moyenne</strong> : Privilégiez les vendeurs avec une note supérieure à 4/5</li>
+                            <li><strong>Ancienneté</strong> : Les vendeurs présents depuis longtemps sont généralement sérieux</li>
+                            <li><strong>Réactivité</strong> : Un vendeur qui répond rapidement est un bon signe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Que se passe-t-il si je suis victime d'une arnaque ?</span>
+                        <i class="bi bi-plus faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si vous pensez être victime d'une arnaque :</p>
+                        <ol>
+                            <li>Rassemblez toutes les preuves (conversations, reçus, etc.)</li>
+                            <li>Signalez immédiatement à notre support</li>
+                            <li>Portez plainte auprès des autorités (police/gendarmerie)</li>
+                            <li>Contactez votre banque si le paiement a été fait par carte ou virement</li>
+                        </ol>
+                        <p>Nous fournirons toutes les informations dont nous disposons sur le vendeur aux autorités compétentes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="alert-box alert-info">
+                <h4><i class="bi bi-info-circle"></i> Notre engagement</h4>
+                <p>AslazMarket s'engage à maintenir une plateforme sécurisée pour tous les utilisateurs. Nous investissons continuellement dans :</p>
+                <ul>
+                    <li>L'amélioration de nos systèmes de vérification des vendeurs</li>
+                    <li>La formation de notre équipe de support</li>
+                    <li>La coopération avec les autorités pour lutter contre la fraude en ligne</li>
+                    <li>La sensibilisation des acheteurs aux bonnes pratiques</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket</h4>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 12px; line-height: 1.6;">
+                            Marketplace sécurisée connectant acheteurs et vendeurs vérifiés. Votre sécurité est notre priorité.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Protection -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Protection</h4>
+                        <ul class="footer-links">
+                            <li><a href="protection-acheteur.html" class="active">Protection acheteur</a></li>
+                            <li><a href="vendeurs-verifies.html">Vendeurs vérifiés</a></li>
+                            <li><a href="signalement.html">Signaler un problème</a></li>
+                            <li><a href="confidentialite.html">Confidentialité</a></li>
+                            <li><a href="conditions.html">Conditions d'utilisation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Acheter -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Acheter</h4>
+                        <ul class="footer-links">
+                            <li><a href="comment-acheter.html">Comment acheter</a></li>
+                            <li><a href="categories.html">Catégories</a></li>
+                            <li><a href="promotions.html">Promotions</a></li>
+                            <li><a href="livraison.html">Livraison</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html">Centre d'aide</a></li>
+                            <li><a href="contact.html">Contactez-nous</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="reclamation.html">Réclamation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Contact urgence</h4>
+                        <div style="margin-top: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-envelope"></i> support@aslazmarket.com</p>
+                            <p><i class="bi bi-telephone"></i> +33 1 23 45 67 89 (Support)</p>
+                            <p><i class="bi bi-shield-exclamation"></i> signalement@aslazmarket.com (Arnaques)</p>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-twitter"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2023 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    <i class="bi bi-shield-check"></i> Plateforme sécurisée
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Gestion de la FAQ (ouvrir/fermer les questions)
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    // Fermer toutes les autres réponses
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Ouvrir/fermer cette réponse
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+            
+            // Animation des éléments au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes et boîtes
+            document.querySelectorAll('.badge-card, .guarantee-box, .reporting-step').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+            
+            // Animation des étapes de la timeline
+            const timelineSteps = document.querySelectorAll('.timeline-step');
+            timelineSteps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                step.style.transitionDelay = (index * 0.2) + 's';
+                observer.observe(step);
+            });
+            
+            console.log('Page "Protection de l\'acheteur" chargée avec succès');
+        });
+    </script>
+</body>
+</html>
