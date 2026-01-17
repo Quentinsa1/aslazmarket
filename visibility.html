@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing & Visibilité - AslazMarket</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #f44336;
+            --secondary-color: #263238;
+            --light-color: #fafafa;
+            --gray-light: #eceff1;
+            --gray-medium: #90a4ae;
+            --gray-dark: #455a64;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --info-color: #2196f3;
+            --purple-color: #7b1fa2;
+            --border-radius: 3px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-max: 1200px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 14px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container-xxl {
+            max-width: var(--container-max);
+            padding: 0 15px;
+        }
+        
+        /* ===== TOP BAR UTILITAIRE ===== */
+        .top-bar {
+            background-color: var(--light-color);
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        
+        .top-bar .dropdown-toggle {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: transparent;
+            border: none;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .top-bar-link {
+            color: var(--gray-dark);
+            padding: 0 8px;
+            border-right: 1px solid var(--gray-light);
+        }
+        
+        .top-bar-link:last-child {
+            border-right: none;
+        }
+        
+        /* ===== HEADER PRINCIPAL ===== */
+        .main-header {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+            background-color: white;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+        
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gray-dark);
+            position: relative;
+            min-width: 60px;
+        }
+        
+        .action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* ===== NAVIGATION PRINCIPALE ===== */
+        .main-nav {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-menu > li {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu > li:last-child {
+            border-right: none;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: white;
+        }
+        
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            background-color: var(--light-color);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .breadcrumb-item {
+            font-size: 13px;
+            color: var(--gray-medium);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 0;
+            background-color: white;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #7b1fa2 0%, #9c27b0 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* ===== MARKETING TOOLS SECTION ===== */
+        .tools-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-dark);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--purple-color);
+        }
+        
+        .tool-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        
+        .tool-icon {
+            font-size: 48px;
+            margin-bottom: 25px;
+            color: var(--purple-color);
+        }
+        
+        .tool-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .tool-description {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .tool-features {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        
+        .tool-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 13px;
+            color: var(--gray-dark);
+        }
+        
+        .tool-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        /* ===== VISIBILITY STRATEGIES ===== */
+        .strategies-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .strategy-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        .strategy-tab {
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 12px 25px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .strategy-tab:hover {
+            background-color: var(--light-color);
+        }
+        
+        .strategy-tab.active {
+            background-color: var(--purple-color);
+            color: white;
+            border-color: var(--purple-color);
+        }
+        
+        .strategy-content {
+            display: none;
+        }
+        
+        .strategy-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .strategy-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .strategy-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* ===== PROMOTION PACKAGES ===== */
+        .packages-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .package-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .package-card.popular {
+            border: 2px solid var(--purple-color);
+            transform: scale(1.05);
+        }
+        
+        .package-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--purple-color);
+            color: white;
+            padding: 8px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .package-header {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--purple-color) 0%, #9c27b0 100%);
+            color: white;
+        }
+        
+        .package-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .package-period {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .package-body {
+            padding: 30px;
+        }
+        
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+        }
+        
+        .package-features li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .package-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .package-features li.disabled {
+            color: var(--gray-medium);
+        }
+        
+        .package-features li.disabled:before {
+            content: '✗';
+            color: var(--gray-medium);
+        }
+        
+        /* ===== SUCCESS STORIES ===== */
+        .stories-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .story-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .story-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .story-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .story-stat {
+            text-align: center;
+        }
+        
+        .story-stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--purple-color);
+        }
+        
+        .story-stat-label {
+            font-size: 12px;
+            color: var(--gray-medium);
+        }
+        
+        .story-content {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--purple-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 12px;
+            color: var(--gray-medium);
+        }
+        
+        /* ===== MARKETING CALENDAR ===== */
+        .calendar-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .calendar-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            margin-top: 40px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .calendar-event {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--info-color);
+        }
+        
+        .event-date {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .event-day {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--info-color);
+        }
+        
+        .event-month {
+            font-size: 12px;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+        }
+        
+        .event-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+            background-color: var(--light-color);
+        }
+        
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #283593 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 15px 40px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background-color: var(--purple-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #6a1b9a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(123, 31, 162, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--purple-color);
+        }
+        
+        .btn-large {
+            padding: 18px 50px;
+            font-size: 18px;
+        }
+        
+        .btn-package {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-about {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .cta-title {
+                font-size: 28px;
+            }
+            
+            .package-card.popular {
+                transform: none;
+            }
+            
+            .package-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .calendar-container {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .tools-section, .strategies-section, .packages-section,
+            .stories-section, .calendar-section, .faq-section, .cta-section {
+                padding: 60px 0;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .strategy-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR UTILITAIRE ===== -->
+    <div class="top-bar">
+        <div class="container-xxl">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-translate"></i> FR <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">EN - English</a></li>
+                            <li><a class="dropdown-item" href="#">ES - Español</a></li>
+                            <li><a class="dropdown-item" href="#">DE - Deutsch</a></li>
+                        </ul>
+                    </div>
+                    <a href="index.html" class="top-bar-link ms-3"><i class="bi bi-house"></i> Accueil</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="connexion.html" class="top-bar-link"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
+                    <a href="inscription-vendeur.html" class="top-bar-link"><i class="bi bi-person-plus"></i> Devenir vendeur</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER PRINCIPAL ===== -->
+    <header class="main-header">
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <a href="index.html" class="logo">Aslaz<span>Market</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 text-center">
+                    <h1 style="font-size: 18px; color: var(--primary-color);">Marketing & Visibilité</h1>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="header-actions">
+                        <a href="aide-support.html" class="action-item">
+                            <i class="bi bi-question-circle action-icon"></i>
+                            <span>Aide</span>
+                        </a>
+                        <a href="connexion.html" class="action-item">
+                            <i class="bi bi-person-circle action-icon"></i>
+                            <span>Connexion</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION PRINCIPALE ===== -->
+    <nav class="main-nav">
+        <div class="container-xxl">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+                    <li><a href="categories.html"><i class="bi bi-grid-3x3-gap"></i> Catégories</a></li>
+                    <li><a href="vendeurs.html"><i class="bi bi-shop"></i> Vendeurs</a></li>
+                    <li><a href="comment-acheter.html"><i class="bi bi-cart-check"></i> Comment acheter</a></li>
+                    <li><a href="devenir-vendeur.html"><i class="bi bi-person-badge"></i> Devenir vendeur</a></li>
+                    <li><a href="marketing-visibilite.html" class="active"><i class="bi bi-megaphone"></i> Marketing</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb">
+        <div class="container-xxl">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="devenir-vendeur.html">Vendre</a></li>
+                <li class="breadcrumb-item active">Marketing & Visibilité</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container-xxl">
+                <div class="hero-content">
+                    <h1 class="hero-title">Boostez vos ventes avec nos outils marketing</h1>
+                    <p class="hero-subtitle">
+                        Augmentez votre visibilité, attirez plus d'acheteurs et multipliez vos revenus grâce à nos solutions marketing sur-mesure.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#packages" class="btn btn-primary btn-large">
+                            <i class="bi bi-rocket-takeoff"></i> Découvrir nos offres
+                        </a>
+                        <a href="#strategies" class="btn btn-secondary btn-large">
+                            <i class="bi bi-graph-up"></i> Voir les stratégies
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">+350%</div>
+                            <div class="stat-label">Visibilité moyenne</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">+220%</div>
+                            <div class="stat-label">Augmentation des ventes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Satisfaction vendeurs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24h</div>
+                            <div class="stat-label">Activation rapide</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketing Tools Section -->
+        <section class="tools-section">
+            <div class="container-xxl">
+                <h2 class="section-title">Nos outils marketing puissants</h2>
+                <p class="section-subtitle">
+                    Des solutions complètes pour augmenter votre visibilité et booster vos ventes
+                </p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-badge">Recommandé</div>
+                        <div class="tool-icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h3 class="tool-title">Optimisation SEO</h3>
+                        <p class="tool-description">
+                            Améliorez votre positionnement dans les résultats de recherche AslazMarket et Google.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Optimisation des titres et descriptions</li>
+                            <li>Mots-clés stratégiques</li>
+                            <li>Optimisation mobile</li>
+                            <li>Analyse de la concurrence</li>
+                            <li>Rapports mensuels détaillés</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('seo')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-megaphone"></i>
+                        </div>
+                        <h3 class="tool-title">Publicités ciblées</h3>
+                        <p class="tool-description">
+                            Ciblez les acheteurs les plus susceptibles d'acheter vos produits.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Publicités sur la page d'accueil</li>
+                            <li>Publicités dans les résultats de recherche</li>
+                            <li>Publicités par email marketing</li>
+                            <li>Retargeting des visiteurs</li>
+                            <li>Analytics en temps réel</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('ads')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-percent"></i>
+                        </div>
+                        <h3 class="tool-title">Promotions intelligentes</h3>
+                        <p class="tool-description">
+                            Augmentez vos ventes avec des promotions ciblées et des offres spéciales.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Création de coupons personnalisés</li>
+                            <li>Promotions flash</li>
+                            <li>Offres groupées</li>
+                            <li>Programme de fidélité</li>
+                            <li>Promotions saisonnières</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('promo')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-badge">Nouveau</div>
+                        <div class="tool-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3 class="tool-title">Analytics avancés</h3>
+                        <p class="tool-description">
+                            Analysez vos performances et optimisez votre stratégie commerciale.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Tableau de bord personnalisé</li>
+                            <li>Analyse du comportement des acheteurs</li>
+                            <li>Rapports de conversion</li>
+                            <li>Comparaison avec la concurrence</li>
+                            <li>Prévisions de ventes</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('analytics')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3 class="tool-title">Marketing social</h3>
+                        <p class="tool-description">
+                            Utilisez les réseaux sociaux pour promouvoir vos produits et engager votre audience.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Intégration avec Facebook & Instagram</li>
+                            <li>Création de contenu automatisée</li>
+                            <li>Publicités sur les réseaux sociaux</li>
+                            <li>Gestion des commentaires et avis</li>
+                            <li>Campagnes d'influenceurs</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('social')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h3 class="tool-title">Email Marketing</h3>
+                        <p class="tool-description">
+                            Gardez contact avec vos clients et prospectez de nouveaux acheteurs.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Campagnes d'email automatisées</li>
+                            <li>Segmentation de votre audience</li>
+                            <li>Templates professionnels</li>
+                            <li>Analyse des taux d'ouverture</li>
+                            <li>Newsletters personnalisées</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPackage('email')">
+                            <i class="bi bi-info-circle"></i> En savoir plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visibility Strategies -->
+        <section class="strategies-section" id="strategies">
+            <div class="container-xxl">
+                <h2 class="section-title">Stratégies de visibilité</h2>
+                <p class="section-subtitle">
+                    Choisissez la stratégie qui correspond le mieux à vos objectifs commerciaux
+                </p>
+                
+                <div class="strategy-tabs">
+                    <button class="strategy-tab active" data-strategy="beginner">Débutant</button>
+                    <button class="strategy-tab" data-strategy="intermediate">Intermédiaire</button>
+                    <button class="strategy-tab" data-strategy="advanced">Avancé</button>
+                    <button class="strategy-tab" data-strategy="enterprise">Entreprise</button>
+                </div>
+                
+                <!-- Débutant -->
+                <div class="strategy-content active" id="beginner-strategy">
+                    <div class="strategy-card">
+                        <h3 class="strategy-card-title">
+                            <i class="bi bi-star"></i> Stratégie Débutant - Les Bases Essentielles
+                        </h3>
+                        <p>Idéal pour les nouveaux vendeurs qui veulent augmenter leur visibilité sans investissement important.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4>Actions recommandées :</h4>
+                                <ul>
+                                    <li>Optimisation complète de votre profil vendeur</li>
+                                    <li>Photos produits professionnelles</li>
+                                    <li>Descriptions détaillées avec mots-clés</li>
+                                    <li>Participation au programme "Nouveau vendeur"</li>
+                                    <li>Demande de badge "Vérifié"</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Résultats attendus :</h4>
+                                <ul>
+                                    <li>+50% de visibilité dans les 30 premiers jours</li>
+                                    <li>Augmentation des clics sur vos produits</li>
+                                    <li>Meilleure conversion visiteurs/acheteurs</li>
+                                    <li>Accès aux acheteurs recherchant des nouveaux vendeurs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intermédiaire -->
+                <div class="strategy-content" id="intermediate-strategy">
+                    <div class="strategy-card">
+                        <h3 class="strategy-card-title">
+                            <i class="bi bi-trophy"></i> Stratégie Intermédiaire - Croissance Accélérée
+                        </h3>
+                        <p>Pour les vendeurs établis qui veulent accélérer leur croissance et augmenter leurs parts de marché.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4>Actions recommandées :</h4>
+                                <ul>
+                                    <li>Publicités ciblées sur la plateforme</li>
+                                    <li>Promotions saisonnières régulières</li>
+                                    <li>Programme de fidélité clients</li>
+                                    <li>Optimisation SEO avancée</li>
+                                    <li>Participation aux événements promotionnels</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Résultats attendus :</h4>
+                                <ul>
+                                    <li>+120% de ventes en 3 mois</li>
+                                    <li>Taux de conversion amélioré de 40%</li>
+                                    <li>Fidélisation de 30% des clients</li>
+                                    <li>Positionnement sur les premières pages</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Avancé -->
+                <div class="strategy-content" id="advanced-strategy">
+                    <div class="strategy-card">
+                        <h3 class="strategy-card-title">
+                            <i class="bi bi-award"></i> Stratégie Avancée - Leadership du Marché
+                        </h3>
+                        <p>Pour les vendeurs qui visent la position de leader dans leur catégorie.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4>Actions recommandées :</h4>
+                                <ul>
+                                    <li>Campagnes multi-canaux (email, social, display)</li>
+                                    <li>Marketing d'influence</li>
+                                    <li>Content marketing (blog, guides)</li>
+                                    <li>Analytics prédictifs</li>
+                                    <li>Programmes de parrainage premium</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Résultats attendus :</h4>
+                                <ul>
+                                    <li>+300% de croissance annuelle</li>
+                                    <li>Position de leader dans votre catégorie</li>
+                                    <li>Taux de rétention clients de 70%</li>
+                                    <li>Reconnaissance de marque significative</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Entreprise -->
+                <div class="strategy-content" id="enterprise-strategy">
+                    <div class="strategy-card">
+                        <h3 class="strategy-card-title">
+                            <i class="bi bi-building"></i> Stratégie Entreprise - Domination du Marché
+                        </h3>
+                        <p>Pour les grandes entreprises et marques qui veulent dominer leur secteur.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4>Actions recommandées :</h4>
+                                <ul>
+                                    <li>Solutions marketing sur-mesure</li>
+                                    <li>Accès aux données exclusives du marché</li>
+                                    <li>Campagnes internationales</li>
+                                    <li>Partnerships stratégiques avec AslazMarket</li>
+                                    <li>Événements et lancements exclusifs</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Résultats attendus :</h4>
+                                <ul>
+                                    <li>Domination du marché dans votre secteur</li>
+                                    <li>Expansion internationale accélérée</li>
+                                    <li>Accès aux insights stratégiques du marché</li>
+                                    <li>Positionnement premium exclusif</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+
+        <!-- Success Stories -->
+        <section class="stories-section">
+            <div class="container-xxl">
+                <h2 class="section-title">Ils ont boosté leurs ventes</h2>
+                <p class="section-subtitle">
+                    Découvrez comment nos vendeurs ont multiplié leurs revenus grâce à nos outils marketing
+                </p>
+                
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-stats">
+                            <div class="story-stat">
+                                <div class="story-stat-number">+450%</div>
+                                <div class="story-stat-label">de ventes</div>
+                            </div>
+                            <div class="story-stat">
+                                <div class="story-stat-number">3 mois</div>
+                                <div class="story-stat-label">pour y arriver</div>
+                            </div>
+                        </div>
+                        <p class="story-content">
+                            "Grâce au forfait Professionnel et aux publicités ciblées, j'ai multiplié mes ventes par 5 en seulement 3 mois. L'investissement a été rentabilisé dès le premier mois !"
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h4>Sophie Martin</h4>
+                                <p>Vendeuse de cosmétiques bio</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-stats">
+                            <div class="story-stat">
+                                <div class="story-stat-number">#1</div>
+                                <div class="story-stat-label">dans sa catégorie</div>
+                            </div>
+                            <div class="story-stat">
+                                <div class="story-stat-number">6 mois</div>
+                                <div class="story-stat-label">pour devenir leader</div>
+                            </div>
+                        </div>
+                        <p class="story-content">
+                            "Les outils d'optimisation SEO et les analytics m'ont permis de comprendre exactement ce que voulaient mes clients. Je suis maintenant le vendeur numéro 1 dans ma catégorie !"
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">TP</div>
+                            <div class="author-info">
+                                <h4>Thomas Petit</h4>
+                                <p>Vendeur d'équipements sportifs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-stats">
+                            <div class="story-stat">
+                                <div class="story-stat-number">+800%</div>
+                                <div class="story-stat-label">de visibilité</div>
+                            </div>
+                            <div class="story-stat">
+                                <div class="story-stat-number">90%</div>
+                                <div class="story-stat-label">clients fidèles</div>
+                            </div>
+                        </div>
+                        <p class="story-content">
+                            "Le programme de fidélité et les promotions intelligentes ont transformé mes clients occasionnels en clients fidèles. Ma visibilité a explosé et mon chiffre d'affaires a suivi !"
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">LC</div>
+                            <div class="author-info">
+                                <h4>Laura Chen</h4>
+                                <p>Vendeuse de produits high-tech</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container-xxl">
+                <h2 class="section-title">Questions fréquentes</h2>
+                <p class="section-subtitle">
+                    Tout ce que vous devez savoir sur nos services marketing
+                </p>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Combien de temps faut-il pour voir des résultats ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La plupart de nos vendeurs voient une amélioration significative dans les 2-4 premières semaines. L'optimisation SEO peut prendre 4-8 semaines pour des résultats complets, tandis que les publicités ciblées montrent des résultats dès les premiers jours.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Puis-je changer de forfait à tout moment ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, vous pouvez changer de forfait à tout moment. Si vous passez à un forfait supérieur, les nouvelles fonctionnalités sont activées immédiatement. Si vous passez à un forfait inférieur, le changement prend effet à la fin de votre cycle de facturation actuel.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Y a-t-il des frais cachés ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Non, tous nos prix sont transparents. Le forfait comprend tous les outils et fonctionnalités listés. Les crédits publicitaires inclus peuvent être complétés si vous souhaitez augmenter votre budget publicitaire, mais cela est toujours optionnel et clairement indiqué.</p>
+                        </div>
+                    </div>
+                    
+                 
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Puis-je annuler mon abonnement à tout moment ?</span>
+                            <i class="bi bi-plus faq-toggle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, vous pouvez annuler votre abonnement marketing à tout moment. L'annulation prend effet à la fin de votre cycle de facturation actuel. Vous conservez l'accès aux fonctionnalités jusqu'à la fin de la période payée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container-xxl">
+                <div class="hero-content">
+                    <h2 class="cta-title">Prêt à booster vos ventes ?</h2>
+                    <p class="cta-subtitle">
+                        Rejoignez les milliers de vendeurs qui ont multiplié leurs revenus grâce à nos solutions marketing.
+                        Notre équipe d'experts est là pour vous accompagner à chaque étape.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="connexion.html" class="btn btn-primary btn-large">
+                            <i class="bi bi-rocket-takeoff"></i> Commencer maintenant
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container-xxl">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">AslazMarket Marketing</h4>
+                        <p class="footer-about">
+                            Solutions marketing innovantes pour aider les vendeurs à augmenter leur visibilité,
+                            attirer plus d'acheteurs et maximiser leurs revenus sur notre plateforme.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Services marketing -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#seo">Optimisation SEO</a></li>
+                            <li><a href="#ads">Publicités ciblées</a></li>
+                            <li><a href="#promo">Promotions</a></li>
+                            <li><a href="#analytics">Analytics</a></li>
+                            <li><a href="#social">Marketing social</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Forfaits -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Forfaits</h4>
+                        <ul class="footer-links">
+                            <li><a href="#packages">Forfait Essentiel</a></li>
+                            <li><a href="#packages">Forfait Professionnel</a></li>
+                            <li><a href="#packages">Forfait Premium</a></li>
+                            <li><a href="#packages">Solutions sur-mesure</a></li>
+                            <li><a href="#packages">Étude de marché gratuite</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ressources -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Ressources</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog-marketing.html">Blog marketing</a></li>
+                            <li><a href="guides.html">Guides pratiques</a></li>
+                            <li><a href="webinaires.html">Webinaires gratuits</a></li>
+                            <li><a href="etudes-cas.html">Études de cas</a></li>
+                            <li><a href="outils-gratuits.html">Outils gratuits</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-section">
+                        <h4 class="footer-section-title">Contact marketing</h4>
+                        <div style="margin-top: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">
+                            <p><i class="bi bi-envelope"></i> marketing@aslazmarket.com</p>
+                            <p><i class="bi bi-telephone"></i> +33 1 23 45 67 89</p>
+                            <p><i class="bi bi-clock"></i> Lun-Ven: 9h-18h</p>
+                            <p><i class="bi bi-chat"></i> Chat en direct: 10h-17h</p>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-facebook"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-instagram"></i></a>
+                            <a href="#" style="color: white; font-size: 20px;"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    © 2024 AslazMarket. Tous droits réservés.
+                </div>
+                <div>
+                    <i class="bi bi-megaphone"></i> Solutions marketing pour vendeurs
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personnalisé -->
+    <script>
+        // Données des stratégies
+        const strategies = {
+            'beginner': 'beginner-strategy',
+            'intermediate': 'intermediate-strategy',
+            'advanced': 'advanced-strategy',
+            'enterprise': 'enterprise-strategy'
+        };
+        
+        // Données des forfaits
+        const packages = {
+            'basic': {
+                name: 'Essentiel',
+                price: '49€/mois',
+                features: ['SEO basique', 'Badge nouveau vendeur', '1 promotion/mois']
+            },
+            'pro': {
+                name: 'Professionnel',
+                price: '99€/mois',
+                features: ['SEO complet', 'Badge vérifié', '4 promotions/mois', '50€ crédit pub']
+            },
+            'premium': {
+                name: 'Premium',
+                price: '199€/mois',
+                features: ['SEO avancé', 'Badge premium', 'Promos illimitées', '150€ crédit pub', 'Support prioritaire']
+            }
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration des onglets de stratégies
+            setupStrategyTabs();
+            
+            // Configuration de la FAQ
+            setupFAQ();
+            
+            // Animation des cartes
+            setupCardAnimations();
+            
+            console.log('Page Marketing & Visibilité chargée avec succès');
+        });
+        
+        // Configuration des onglets de stratégies
+        function setupStrategyTabs() {
+            const strategyTabs = document.querySelectorAll('.strategy-tab');
+            const strategyContents = document.querySelectorAll('.strategy-content');
+            
+            strategyTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const strategy = this.dataset.strategy;
+                    
+                    // Retirer la classe active de tous les onglets et contenus
+                    strategyTabs.forEach(t => t.classList.remove('active'));
+                    strategyContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Ajouter la classe active à l'onglet cliqué
+                    this.classList.add('active');
+                    
+                    // Afficher le contenu correspondant
+                    const contentId = `${strategy}-strategy`;
+                    const contentElement = document.getElementById(contentId);
+                    if (contentElement) {
+                        contentElement.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Configuration de la FAQ
+        function setupFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', () => {
+                    // Fermer toutes les autres réponses
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Ouvrir/fermer cette réponse
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+        }
+        
+        // Animation des cartes au défilement
+        function setupCardAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes d'outils et de forfaits
+            document.querySelectorAll('.tool-card, .package-card, .story-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+        }
+        
+        // Sélection d'un forfait
+        function selectPackage(packageType) {
+            const packageData = packages[packageType];
+            
+            if (!packageData) {
+                console.error('Forfait non trouvé:', packageType);
+                return;
+            }
+            
+            // Créer un message de confirmation
+            const message = `
+                Vous avez sélectionné le forfait ${packageData.name} à ${packageData.price}.
+                
+                Fonctionnalités incluses:
+                ${packageData.features.map(feat => `• ${feat}`).join('\n')}
+                
+                Souhaitez-vous continuer vers le paiement ?
+            `;
+            
+            // Demander confirmation
+            if (confirm(message)) {
+                // Rediriger vers la page de paiement (simulation)
+                alert('Redirection vers la page de paiement...');
+                // En production: window.location.href = `paiement-forfait.html?package=${packageType}`;
+            }
+        }
+        
+        // Sélection d'un outil
+        function selectTool(toolType) {
+            const toolNames = {
+                'seo': 'Optimisation SEO',
+                'ads': 'Publicités ciblées',
+                'promo': 'Promotions intelligentes',
+                'analytics': 'Analytics avancés',
+                'social': 'Marketing social',
+                'email': 'Email Marketing'
+            };
+            
+            const toolName = toolNames[toolType] || toolType;
+            
+            // Afficher une modal ou rediriger vers la page détaillée
+            alert(`Vous avez sélectionné: ${toolName}\n\nRedirection vers la page détaillée...`);
+            // En production: window.location.href = `outil-marketing.html?tool=${toolType}`;
+        }
+    </script>
+</body>
+</html>
